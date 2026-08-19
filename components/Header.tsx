@@ -28,6 +28,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [menuSubOpen, setMenuSubOpen] = useState<'treatments' | 'skincare' | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -50,6 +51,16 @@ export default function Header({ treatments, light = false }: HeaderProps) {
     }
   }, [searchOpen]);
 
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 24);
+    }
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   function handleSearchSubmit(event: React.FormEvent) {
     event.preventDefault();
     // Hook up to your search route/logic here
@@ -58,7 +69,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
 
   return (
     <div ref={dropdownRef}>
-      <header className={`siteHeader ${light ? 'lightHeader' : ''} ${treatmentsOpen ? 'menuOpen' : ''} ${searchOpen ? 'searchBg' : ''}`}>
+      <header className={`siteHeader ${light ? 'lightHeader' : ''} ${scrolled ? 'scrolled' : ''} ${treatmentsOpen ? 'menuOpen' : ''} ${searchOpen ? 'searchBg' : ''}`}>
         <nav className="nav shell" aria-label="Huvudmeny">
           <div className="navGroup left">
             <button
@@ -234,6 +245,9 @@ export default function Header({ treatments, light = false }: HeaderProps) {
         .siteHeader.lightHeader { background: #fbfaf7; }
         :global(.siteHeader.lightHeader .navGroup a), .siteHeader.lightHeader .navDropdownTrigger, .siteHeader.lightHeader .iconBtn, :global(.siteHeader.lightHeader .brand), :global(.siteHeader.lightHeader .brand small) { color: var(--ink); }
         :global(.siteHeader.lightHeader .brandWord) { color: var(--gold); }
+        .siteHeader.scrolled { position: fixed; top: 0; left: 0; right: 0; padding-top: 18px; padding-bottom: 18px; background: #fff; box-shadow: 0 4px 18px rgba(45, 41, 38, .1); transition: background-color .2s ease, box-shadow .2s ease; }
+        :global(.siteHeader.scrolled .navGroup a), .siteHeader.scrolled .navDropdownTrigger, .siteHeader.scrolled .iconBtn, :global(.siteHeader.scrolled .brand), :global(.siteHeader.scrolled .brand small) { color: var(--ink); }
+        :global(.siteHeader.scrolled .brandWord) { color: var(--gold); }
 
         .searchOverlay { position: relative; z-index: 60; background: #f4ead9; padding: 24px 0; }
         .searchOverlayForm { display: flex; align-items: center; background: #fff; border-radius: 2px; padding: 4px 4px 4px 24px; }
