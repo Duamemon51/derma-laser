@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 const treatments = [
@@ -20,21 +21,21 @@ export default function Footer() {
         <div className={styles.footerIntro}>
           <h3>Komplett skönhetsklinik med lång erfarenhet</h3>
           <p>Derma Laser Studio är en personlig och diskret skönhetsklinik i centrala Göteborg. Vi erbjuder avancerad hudvård, laserbehandlingar och estetiska behandlingar.</p>
-          <a className={styles.contactLink} href="/kontakt">Hör av dig</a>
+          <Link className={styles.contactLink} href="/kontakt">Hör av dig</Link>
         </div>
 
         <div className={styles.footerLinks}>
           <h4>Behandlingar</h4>
-          {treatments.map(([title, href]) => <a href={href} key={title}>{title}</a>)}
+          {treatments.map(([title, href]) => <Link href={href} key={title}>{title}</Link>)}
         </div>
 
         <div className={styles.footerLinks}>
           <h4>Snabblänkar</h4>
-          <a href="/">Hem</a>
-          <a href="/omdomen">Omdömen</a>
-          <a href="/boka-tid">Boka tid online</a>
-          <a href="/om-oss">Om oss</a>
-          <a href="/kontakt">Kontakt</a>
+          <Link href="/">Hem</Link>
+          <Link href="/omdomen">Omdömen</Link>
+          <Link href="/boka-tid">Boka tid online</Link>
+          <Link href="/om-oss">Om oss</Link>
+          <Link href="/kontakt">Kontakt</Link>
         </div>
 
         <div className={styles.footerBrand}>
@@ -45,7 +46,7 @@ export default function Footer() {
 
       <div className={`${styles.footerBottom} shell`}>
         <small>© 2026 Derma Laser Studio</small>
-        <div><a href="/kontakt">Kontakt</a><a href="/integritetspolicy">Integritetspolicy</a></div>
+        <div><Link href="/kontakt">Kontakt</Link><Link href="/integritetspolicy">Integritetspolicy</Link></div>
         <small>Design / Utveckling</small>
       </div>
     </footer>

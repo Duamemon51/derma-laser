@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -127,7 +128,7 @@ export default function HomePage() {
                 <span className="cardIcon">◇</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <a className="cardArrow" href={`/behandlingar/${treatmentSlugs[title]}`} aria-label={`Läs mer om ${title}`}>→</a>
+                <Link className="cardArrow" href={`/behandlingar/${treatmentSlugs[title]}`} aria-label={`Läs mer om ${title}`}>→</Link>
               </article>
             ))}
           </div>
