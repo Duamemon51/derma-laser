@@ -1,0 +1,137 @@
+.page {
+  min-height: 100vh;
+  background: #fbf7f2;
+}
+
+.hero {
+  position: relative;
+  min-height: 640px;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(25, 23, 20, .28), rgba(25, 23, 20, .16) 42%, rgba(25, 23, 20, .62));
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 48px), 1120px);
+  margin: auto auto 78px;
+}
+
+.eyebrow {
+  margin: 0 0 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.heroContent h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(42px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.reviewInfo {
+  padding-block: 96px 112px;
+  color: #2d2926;
+}
+
+.lead {
+  max-width: 720px;
+  margin: 0 auto 72px;
+  font-size: 22px;
+  line-height: 1.62;
+}
+
+.reviewColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.reviewColumns h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.reviewColumns p {
+  margin: 0;
+  color: #6e6863;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.reviewImageSection {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background: #e8e2db;
+}
+
+.reviewImage {
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 560px;
+  }
+
+  .heroContent {
+    width: min(calc(100% - 28px), 1120px);
+    margin-bottom: 58px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+  }
+
+  .heroContent h1 {
+    font-size: 42px;
+  }
+
+  .reviewInfo {
+    padding-block: 64px 76px;
+  }
+
+  .lead {
+    margin-bottom: 48px;
+    font-size: 18px;
+  }
+
+  .reviewColumns {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .reviewColumns h2 {
+    font-size: 22px;
+  }
+
+  .reviewImageSection {
+    height: 280px;
+  }
+}
