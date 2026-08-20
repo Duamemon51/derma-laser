@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import Header from '../components/Header';
@@ -6,32 +5,24 @@ import Footer from '../components/Footer';
 import TrustSection from '../components/TrustSection';
 import ResultsSection from '../components/ResultsSection';
 import TreatmentCategoriesSection from '../components/TreatmentCategoriesSection';
-import { serviceLinks } from '../components/services';
 import TreatmentsSection from '@/components/TreatmentsSection';
 import TipsGuidesSection from '@/components/TipsGuidesSection';
 import IntroStatement from '@/components/IntroStatement';
+import FaqSection from '@/components/FaqSection';
 
 const treatments = [
-  ['Laserbehandlingar', 'Hårborttagning, pigmentering, kärlbehandling och mer med avancerad laserteknik.'],
-  ['Hudföryngring', 'Microneedling, kemisk peeling och andra metoder för att återställa hudens lyster.'],
-  ['Injektioner', 'Fillers och anti-aging behandlingar för ett naturligt och fräscht utseende.'],
-  ['Medicinsk hudvård', 'Djupgående hudanalyser och behandlingar för vanliga hudproblem.'],
-  ['Kroppsvård', 'Avancerad kroppsvård för att forma, strama upp och förbättra din hud.'],
-  ['Klassisk massage', 'Skön avslappnande massage som lindrar spänningar och stress i kroppen.'],
-  ['Lyxbehandling för 1/2', 'En exklusiv upplevelse för dig själv eller tillsammans med en vän.'],
-  ['Spaavdelning med bubbelpool & privat IR-bastu', 'Koppla av i vår privata spaavdelning med bubbelpool och infravärmebastu.'],
-  ['Fotbehandling/Pedikyr', 'Professionell fotvård och pedikyr för mjuka, välvårdade fötter.'],
-  ['Hudvård/Ansikte', 'Skräddarsydda ansiktsbehandlingar anpassade efter din hudtyp.'],
-  ['Övrigt', 'Fler behandlingar och tjänster för din skönhet och ditt välmående.'],
+  ['Hudanalys', '30 min, gratis. Personlig analys av hudens behov och mål.'],
+  ['Akne & oren hud', '45 min, 795 kr. För akne, finnar och orenheter.'],
+  ['Känslig & reaktiv hud', '45 min, 695 kr. Lugnar och stärker hudbarriären.'],
+  ['Pigmentering & ojämn hudton', '30 min, 795 kr. För en jämnare hudton och mer lyster.'],
+  ['Signature Premium Hudbehandling', '45 min, 1 999 kr. Avancerad behandling med personlig anpassning.'],
+  ['Klassisk Hudbehandling', '45 min, 795 kr. Rengör, återfuktar och ger huden ny lyster.'],
+  ['Kemisk peeling', '45 min, 1 195 kr. Exfolierar huden och förbättrar struktur och lyster.'],
+  ['Hydrafacial', '30 min, 895 kr. Djuprengör, exfolierar och återfuktar huden.'],
+  ['Carbon Peel', '45 min, 1 095 kr. Ger lyster och en jämnare hudstruktur.'],
+  ['Diodlaser hårborttagning', 'Från 495 kr. Effektiv hårborttagning med diodlaser.'],
+  ['CO2 Laser Resurfacing', '60 min, 4 500 kr. För förbättrad hudstruktur och hudförnyelse.'],
 ];
-const treatmentSlugs: Record<string, string> = {
-  Laserbehandlingar: 'laserbehandlingar',
-  Hudföryngring: 'hudforengring',
-  Injektioner: 'injektioner',
-  'Medicinsk hudvård': 'medicinsk-hudvard',
-  Kroppsvård: 'kroppsvard',
-};
-
 const faqs = [
   'Gör behandlingarna ont?',
   'Hur lång återhämtningstid är det?',
@@ -73,27 +64,37 @@ export default function HomePage() {
           />
           <div className="heroScrim" />
         </div>
-        <Header treatments={[...treatments, ...serviceLinks]} />
+        <Header treatments={treatments} />
         <div className="heroCopy shell" id="top">
-          <h1 id="hero-title">En personlig skönhetsklinik i <br /> Göteborg, med dig i fokus.</h1>
+         <h1 id="hero-title">Hudvård & avancerade <br /> hudbehandlingar i Stockholm.</h1>
+          <p>På Dermalaser Studio möter vi varje hud individuellt. Vi hjälper dig med akne, tilltäppta porer, känslig hud, pigmentering, ojämn hudstruktur, glåmighet och oönskad hårväxt.</p>
 
           <div className="buttonRow">
-            <a className="button primary" href="#boka">Boka tid online</a>
+          <a
+  className="button primary"
+  href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Boka tid online
+</a>
+
             <a className="button outline" href="#behandlingar">Behandlingar</a>
             <a className="button link" href="#om-oss">Utforska</a>
           </div>
 
           <div className="rating">
-            <span className="ratingLabel">Nöjda kunder sedan 2000</span>
+           <span className="ratingLabel">Verifierat 20 aug 2026</span>
+
             <div className="ratingScore">
               <span className="ratingStars" aria-label="4,6 av 5 stjärnor">★★★★<span>★</span></span>
-              <strong>4,6/5</strong>
+              <strong>4.9/5</strong>
             </div>
-            <small>+1000 omdömen på Peco</small>
+            <small>572 betyg på Bokadirekt</small>
             <div className="ratingLinks">
-              <a href="#">Se på Peco (extern)</a>
+              <a href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089">Se på Peco (extern)</a>
               <span className="dot" aria-hidden="true">·</span>
-              <a href="#">Mer om omdömen</a>
+              <a href="/omdomen">Mer om omdömen</a>
             </div>
           </div>
         </div>
@@ -105,99 +106,35 @@ export default function HomePage() {
       <section className="about shell section" id="om-oss">
   <div className="aboutCopy center">
     <p className="eyebrow">Om Derma Laser Studio</p>
-    <h2>Din hud är i trygga händer.</h2>
-    <p className="aboutIntro">På Derma Laser Studio kombinerar vi avancerad teknik med personlig omsorg. Vår målsättning är att framhäva din naturliga skönhet genom säkra, effektiva och skräddarsydda behandlingar.</p>
+    <h2>Börja med din hud - inte med behandlingsnamnet.</h2>
+    <p className="aboutIntro">Det är vanligt att veta vad man vill förbättra men inte vilken behandling man ska boka. Därför kan nya kunder börja med en kostnadsfri hudanalys. Vi går igenom huden, dina mål och eventuella hudutmaningar och hjälper dig att välja ett rimligt behandlingsupplägg.</p>
   </div>
   <div className="miniGrid">
-    <div><b>Avancerad teknik</b><span>Vi arbetar med moderna laser- och hudvårdsmetoder.</span></div>
-    <div><b>Personlig rådgivning</b><span>Varje behandling anpassas efter din hudtyp och dina mål.</span></div>
-    <div><b>Trygg & säker miljö</b><span>Din säkerhet och ditt välmående är vår prioritet.</span></div>
-    <div><b>Naturliga resultat</b><span>Vi framhäver din naturliga skönhet – inte förändrar den.</span></div>
+    <div><b>Hudanalys - 30 min, gratis</b><span>Vi analyserar hudens aktuella tillstånd och dina mål.</span></div>
+    <div><b>Personlig rådgivning</b><span>Varje behandling anpassas efter hudtyp, tolerans och behov.</span></div>
+    <div><b>Trygg & säker miljö</b><span>Du får tydlig vägledning genom hela behandlingen.</span></div>
+    <div><b>Långsiktigt perspektiv</b><span>Vi stärker huden utan att stressa den i onödan.</span></div>
   </div>
 </section>
 
-       <section
-  className="consult"
-  id="boka"
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "48px",
-    width: "100%",
-    padding: "48px 56px",
-    borderRadius: "16px",
-    background: "linear-gradient(90deg, #fbeee4 0%, #f3ddc9 100%)",
-  }}
->
-  <div
-    className="consultCopy"
-    style={{ flex: "1 1 50%", minWidth: 0 }}
-  >
-    <p
-      className="eyebrow"
-      style={{
-        margin: 0,
-        color: "#c07a2b",
-        fontWeight: 700,
-        letterSpacing: "0.03em",
-        textTransform: "uppercase",
-        fontSize: "0.8rem",
-      }}
-    >
-      Behandla din skönhet. Boka nu själv.
+       <section className="consult" id="boka">
+  <div className="consultCopy">
+    <p className="eyebrow">
+      Kostnadsfri hudanalys i Stockholm
     </p>
-    <h2
-      style={{
-        margin: "12px 0",
-        fontSize: "2.2rem",
-        lineHeight: 1.15,
-        fontWeight: 400,
-        color: "#1a1a1a",
-      }}
-    >
-      30 minuter som kan
-      <br />
-      förändra din hud.
-    </h2>
-    <p style={{ margin: 0, color: "#4a4a4a", maxWidth: "480px" }}>
+    <h2>Hitta rätt behandling</h2>
+    <p>
       Vi analyserar din hud, går igenom dina mål och skapar en personlig
-      behandlingsplan – helt utan kostnad.
+      behandlingsplan - helt utan kostnad.
     </p>
   </div>
 
-  <div
-    className="consultPoints"
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-      gap: "12px",
-      flex: "1 1 40%",
-    }}
-  >
-    <span>✓ 30 min personlig rådgivning med hudanalys</span>
-    <span>✓ Individuellt anpassade behandlingsplaner</span>
-    <span>✓ Trygg, professionell och diskret miljö</span>
-    <a
-      className="button primary"
-      href="/boka-tid"
-      style={{
-        marginTop: "12px",
-        display: "inline-block",
-        whiteSpace: "nowrap",
-        padding: "14px 28px",
-        borderRadius: "8px",
-        background: "#c07a2b",
-        color: "#fff",
-        fontWeight: 700,
-        fontSize: "0.85rem",
-        textTransform: "uppercase",
-        letterSpacing: "0.03em",
-        textDecoration: "none",
-      }}
-    >
-      Boka 30 min kostnadsfri konsultation
+  <div className="consultPoints">
+    <span>✓ Personlig hudanalys av utbildad hudterapeut</span>
+    <span>✓ Skräddarsydd behandlingsplan efter dina mål</span>
+    <span>✓ Inga bindningstider eller dolda kostnader</span>
+    <a href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" className="button" target="_blank" rel="noopener noreferrer">
+      Boka kostnadsfri analys
     </a>
   </div>
 </section>
@@ -220,27 +157,29 @@ export default function HomePage() {
         </section>
 
         <TrustSection />
-<IntroStatement />
+<IntroStatement
+  eyebrow="Personlig hudvård i Stockholm"
+  statement="Bra hudvård handlar inte enbart om hur huden ser ut direkt efter en behandling. Vi arbetar med hudens helhet och väljer metod efter tillstånd, tolerans och mål - oavsett om du behöver lugna hudbarriären, djuprengöra, exfoliera, behandla pigmentering eller återfukta."
+/>
         <ResultsSection />
 
-        <section className="section shell faq" aria-labelledby="faq-title">
-          <p className="eyebrow center">Vanliga frågor</p><h2 id="faq-title" className="sectionTitle">Har du frågor? Vi har svaren.</h2>
-          <div className="faqGrid">{faqs.map((q, i) => <details key={q}><summary>{q}<span><ChevronDown size={18} strokeWidth={1.5} aria-hidden="true" /></span></summary><p>{i % 2 === 0 ? 'Vi går alltid igenom vad du kan förvänta dig före behandlingen och anpassar upplägget efter dina behov.' : 'Kontakta oss så hjälper vi dig med ett tydligt svar utifrån just din behandling och dina förutsättningar.'}</p></details>)}</div>
-        </section>
+      <FaqSection />
 
-          <TreatmentCategoriesSection treatments={[...treatments, ...serviceLinks]} />
+          <TreatmentCategoriesSection treatments={treatments} />
 
     <section className="cta" id="kontakt" style={{ minHeight: '380px', padding: '20px',borderRadius: 0, }}>
   <div style={{ gridColumn: '1 / -1', maxWidth: '700px', margin: '0 auto', padding: '0 20px' }}>
     <h2 style={{ fontSize: 'clamp(34px, 4.5vw, 56px)', marginBottom: '20px' }}>
-      Redo att ta nästa steg?
+      Boka din behandling
     </h2>
     <p style={{ fontSize: '16px', maxWidth: '560px', margin: '0 auto 32px', lineHeight: 1.7 }}>
-      Upptäck skräddarsydda behandlingar som ger din hud den glöd den förtjänar. Redo din behandling eller konsultation idag.
+      Välj behandling direkt eller börja med en kostnadsfri hudanalys om du vill ha hjälp att hitta rätt. Vi hjälper dig att ta nästa steg mot en starkare och friskare hud.
     </p>
     <Link
       className="button primary"
-      href="/boka-tid"
+      href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089"
+      target="_blank"
+      rel="noopener noreferrer"
       style={{ minHeight: '58px', padding: '0 44px', fontSize: '13px' }}
     >
       Boka tid online

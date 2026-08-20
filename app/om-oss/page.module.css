@@ -101,6 +101,19 @@
   line-height: 1.75;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  margin: 28px 0 44px;
+}
+
+.actions :global(.button + .button) {
+  margin-left: 14px;
+}
+
 /* ===== Full-width banner image ===== */
 .banner {
   position: relative;
@@ -159,6 +172,19 @@
 
   .intro + .columns {
     padding-top: 64px;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions :global(.button) {
+    width: 100%;
+  }
+
+  .actions :global(.button + .button) {
+    margin-left: 0;
   }
 
   .banner {

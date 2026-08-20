@@ -1,7 +1,7 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
-import { serviceLinks } from '../../components/services';
+import { serviceLinks } from '@/components/services';
 import { ChevronDown } from 'lucide-react';
 import styles from './page.module.css';
 
@@ -34,7 +34,7 @@ export default function BookingPage() {
         </details>
 
         <div className={styles.actions}>
-          <a className={styles.primaryButton} href="mailto:boka@citylaser.se">Boka tid online</a>
+          <a className={styles.primaryButton} href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" target="_blank" rel="noopener noreferrer">Boka tid online</a>
           <Link className={styles.secondaryButton} href="/omdomen">Se våra omdömen</Link>
         </div>
       </section>

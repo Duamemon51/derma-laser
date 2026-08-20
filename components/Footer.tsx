@@ -1,19 +1,30 @@
 import Link from 'next/link';
 import styles from './Footer.module.css';
-
 const treatments = [
-  ['Laserbehandlingar', '/behandlingar/laserbehandlingar'],
-  ['Hudföryngring', '/behandlingar/hudforengring'],
-  ['Injektioner', '/behandlingar/injektioner'],
-  ['Medicinsk hudvård', '/behandlingar/medicinsk-hudvard'],
-  ['Kroppsvård', '/behandlingar/kroppsvard'],
-  ['Klassisk massage', '/behandlingar/klassisk-massage'],
-  ['Lyxbehandling för 1/2', '/behandlingar/lyxbehandling-1-2'],
-  ['Spa & IR-bastu', '/behandlingar/spa-och-ir-bastu'],
-  ['Fotbehandling/Pedikyr', '/behandlingar/fotbehandling-pedikyr'],
-  ['Hudvård/Ansikte', '/behandlingar/hudvard-ansikte'],
+  ['Hudanalys', '/behandlingar/hudanalys-stockholm'],
+  ['Akne & oren hud', '/behandlingar/aknebehandling-stockholm'],
+  ['Känslig & reaktiv hud', '/behandlingar/kanslig-hud-stockholm'],
+  ['Pigmentering & ojämn hudton', '/behandlingar/pigmentering-stockholm'],
+  [
+    'Signature Premium Hudbehandling',
+    '/behandlingar/signature-hudbehandling-stockholm',
+  ],
+  [
+    'Klassisk Hudbehandling',
+    '/behandlingar/ansiktsbehandling-stockholm',
+  ],
+  ['Kemisk peeling', '/behandlingar/kemisk-peeling-stockholm'],
+  ['Hydrafacial', '/behandlingar/hydrafacial-stockholm'],
+  ['Carbon Peel', '/behandlingar/carbon-peel-stockholm'],
+  [
+    'Diodlaser hårborttagning',
+    '/behandlingar/laser-harborttagning-stockholm',
+  ],
+  [
+    'CO2 Laser Resurfacing',
+    '/behandlingar/co2-laser-stockholm',
+  ],
 ];
-
 export default function Footer() {
   return (
     <footer className={styles.footer}>
@@ -33,9 +44,11 @@ export default function Footer() {
           <h4>Snabblänkar</h4>
           <Link href="/">Hem</Link>
           <Link href="/omdomen">Omdömen</Link>
-          <Link href="/boka-tid">Boka tid online</Link>
+          <a href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" target="_blank" rel="noopener noreferrer">Boka tid online</a>
           <Link href="/om-oss">Om oss</Link>
+          
           <Link href="/kontakt">Kontakt</Link>
+          
         </div>
 
         <div className={styles.footerBrand}>

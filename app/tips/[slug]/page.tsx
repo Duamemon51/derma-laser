@@ -6,6 +6,7 @@ import { guides, getGuideBySlug, getRelatedGuides } from '@/lib/tips-data';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import styles from './TipsDetail.module.css';
+import { serviceLinks } from '@/components/services';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const guide = getGuideBySlug(slug);
   if (!guide) return {};
   return {
-    title: `${guide.title} | Citylaser`,
+    title: `${guide.title} | Dermalaser Stockholm`,
     description: guide.excerpt,
     openGraph: {
       title: guide.title,
@@ -44,10 +45,52 @@ export default async function TipsDetailPage({ params }: Props) {
   if (!guide) notFound();
 
   const related = getRelatedGuides(guide.slug, 3);
+  const relatedTreatments = guide.cluster === 'Acne & congestion'
+    ? [
+        ['Aknebehandling', '/behandlingar/aknebehandling-stockholm'],
+        ['Hydrafacial', '/behandlingar/hydrafacial-stockholm'],
+        ['Kemisk peeling', '/behandlingar/kemisk-peeling-stockholm'],
+      ]
+    : guide.cluster === 'Pore care & congestion'
+      ? [
+          ['Hydrafacial', '/behandlingar/hydrafacial-stockholm'],
+          ['Carbon Peel', '/behandlingar/carbon-peel-stockholm'],
+          ['Aknebehandling', '/behandlingar/aknebehandling-stockholm'],
+        ]
+      : guide.cluster === 'Pigmentation'
+        ? [
+            ['Pigmentering', '/behandlingar/pigmentering-stockholm'],
+            ['Kemisk peeling', '/behandlingar/kemisk-peeling-stockholm'],
+            ['CO2 Laser', '/behandlingar/co2-laser-stockholm'],
+          ]
+        : guide.cluster === 'Facials & skin renewal'
+          ? [
+              ['Hydrafacial', '/behandlingar/hydrafacial-stockholm'],
+              ['Klassisk ansiktsbehandling', '/behandlingar/ansiktsbehandling-stockholm'],
+              ['Signature Premium', '/behandlingar/signature-hudbehandling-stockholm'],
+            ]
+          : guide.cluster === 'Peels & resurfacing'
+            ? [
+                ['Kemisk peeling', '/behandlingar/kemisk-peeling-stockholm'],
+                ['Pigmentering', '/behandlingar/pigmentering-stockholm'],
+                ['Aknebehandling', '/behandlingar/aknebehandling-stockholm'],
+              ]
+            : guide.cluster === 'CO2 resurfacing'
+              ? [
+                  ['CO2 Laser', '/behandlingar/co2-laser-stockholm'],
+                  ['Aknebehandling', '/behandlingar/aknebehandling-stockholm'],
+                  ['Hudanalys', '/behandlingar/hudanalys-stockholm'],
+                ]
+              : guide.cluster === 'Laser hair removal'
+                ? [['Laser hårborttagning', '/behandlingar/laser-harborttagning-stockholm'], ['Kontakt', '/kontakt']]
+                : [
+                    ['Hudanalys', '/behandlingar/hudanalys-stockholm'],
+                    ['Känslig hud', '/behandlingar/kanslig-hud-stockholm'],
+                  ];
 
   return (
     <>
-      <Header treatments={[]} light />
+      <Header treatments={serviceLinks} light />
       <div className={`shell ${styles.wrap}`}>
       <nav className={styles.breadcrumbs}>
         <Link href="/">Hem</Link>
@@ -105,11 +148,30 @@ export default async function TipsDetailPage({ params }: Props) {
           </div>
         )}
 
+        {guide.relatedLinks && guide.relatedLinks.length > 0 && (
+          <div className={styles.readMore}>
+            <h2>Läs mer</h2>
+            <ul className={styles.readMoreList}>
+              {guide.relatedLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         <div className={styles.ctaRow}>
           <p>Vill du diskutera vad som passar just din hud? Boka en kostnadsfri konsultation hos oss.</p>
-          <Link href="/boka" className="button" style={{ background: 'var(--gold)', color: '#fff' }}>
+          <div className={styles.treatmentLinks}>
+            <strong>Relaterade behandlingar:</strong>{' '}
+            {relatedTreatments.map(([label, href], index) => (
+              <span key={href}><Link href={href}>{label}</Link>{index < relatedTreatments.length - 1 ? ' · ' : ''}</span>
+            ))}
+          </div>
+          <a href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" target="_blank" rel="noopener noreferrer" className="button" style={{ background: 'var(--gold)', color: '#fff' }}>
             Boka konsultation
-          </Link>
+          </a>
         </div>
       </article>
 

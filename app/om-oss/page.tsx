@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { serviceLinks } from '../../components/services';
+import { serviceLinks } from '@/components/services';
 import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Om oss',
-  description: 'Lär känna Derma Laser Studio och vårt team i Göteborg.',
+  title: 'Om Dermalaser Studio | Hudterapeut i Stockholm',
+  description: 'Lär känna Dermalaser Studio och Nadya, utbildad inom kosmetisk dermatologi. Personligt anpassad hudvård i Midsommarkransen, Stockholm.',
 };
 
 export default function AboutPage() {
@@ -25,55 +25,73 @@ export default function AboutPage() {
         <Header treatments={serviceLinks} />
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Om oss</p>
-          <h1 id="about-title">Om Derma Laser Studio</h1>
+          <h1 id="about-title">Om Dermalaser Studio Stockholm</h1>
         </div>
       </section>
 
       <section className={`${styles.intro} shell`}>
         <p className={styles.introText}>
-          Derma Laser Studio är din skönhetsklinik i Göteborg. Vi startade med fokus på
-          avancerad laserbehandling och har sedan dess utvecklats till en klinik som
-          erbjuder ett brett utbud av hudvård, injektioner och estetiska behandlingar –
-          alltid med din hud och dina mål i centrum.
+          Dermalaser Studio Stockholm är en hud- och laserstudio i Midsommarkransen med
+          fokus på personliga, skonsamma och resultatinriktade behandlingar. Studion drivs
+          av Nadya, utbildad inom kosmetisk dermatologi med flera års erfarenhet av hudvård
+          och avancerade hudbehandlingar. Fokus ligger på långsiktiga resultat, trygg
+          vägledning och att stärka huden utan att stressa den i onödan.
         </p>
 
         <div className={styles.columns}>
           <div className={styles.column}>
-            <p className={styles.eyebrow}>Vårt utbud</p>
-            <h2>Skräddarsydda behandlingar för din hud.</h2>
+            <p className={styles.eyebrow}>Vår filosofi</p>
+            <h2>Vi börjar med att förstå huden.</h2>
             <p>
-              Vi erbjuder laserbehandlingar, hudföryngring, injektioner och medicinsk
-              hudvård utförda av kvalificerad personal. Varje behandlingsplan tas fram
-              individuellt utifrån din hudtyp och dina mål, så att resultatet alltid
-              känns som du. Välkommen till oss.
+              Ingen hud är exakt likadan. Två personer med akne, pigmentering eller
+              känslighet kan därför behöva helt olika upplägg. Vi utgår från hudens
+              aktuella tillstånd, tidigare erfarenheter, mål och hur huden brukar reagera
+              innan vi rekommenderar behandling.
             </p>
           </div>
           <div className={styles.column}>
-            <p className={styles.eyebrow}>Våra kärnvärden</p>
-            <h2>En klinik där du som kund alltid är i centrum.</h2>
+            <p className={styles.eyebrow}>Långsiktiga resultat</p>
+            <h2>Naturliga resultat får ta tid.</h2>
+            <p>
+              Målet är inte att göra så mycket som möjligt vid varje besök, utan att välja
+              det huden faktiskt behöver. Behandlingen kan därför vara lugnande och
+              barriärstärkande vid ett besök och mer aktiv när huden är redo för det.
+            </p>
           </div>
         </div>
       </section>
 
       <section className={`${styles.columns} shell`}>
         <div className={styles.column}>
-          <h2>Personligt bemötande i en lugn miljö.</h2>
+          <h2>Hudproblem vi arbetar med.</h2>
           <p>
-            Vi vet att ett klinikbesök ska kännas tryggt från första kontakt. Därför
-            erbjuder vi kostnadsfria konsultationer, ett diskret läge centralt i
-            Göteborg och personal som tar sig tid att lyssna. Vårt mål är att varje
-            person som kliver in hos oss ska känna sig prioriterad, sedd och bekväm
-            genom hela sitt besök.
+            Akne, finnar och oren hud. Pormaskar och tilltäppta porer. Känslig och
+            reaktiv hud. Pigmentering och solskador. Ojämn hudton och glåmighet.
+            Synliga porer och ojämn hudstruktur. Akneärr och förändrad hudstruktur.
+            Torr eller fuktfattig hud samt oönskad hårväxt.
           </p>
         </div>
         <div className={styles.column}>
-          <h2>Kompetens och trygghet i varje steg.</h2>
+          <h2>Du behöver inte veta vad du ska boka.</h2>
           <p>
-            Vår personal arbetar löpande med beprövade metoder och håller sig
-            uppdaterad inom sina respektive områden för att du ska få ett säkert och
-            hållbart resultat. Skulle något ändå inte bli som du tänkt dig är du
-            alltid välkommen tillbaka till oss – det viktigaste för oss är att du
-            som kund är nöjd med behandlingen du fått.
+            Är du ny kund eller osäker på vad huden behöver kan du börja med en
+            kostnadsfri hudanalys. Vi hjälper dig att förstå huden och välja behandling
+            utifrån verkligt behov i stället för trend.
+          </p>
+          <p>
+            <strong>Välkommen till Dermalaser Studio</strong><br />
+            Besök oss på Midsommarvägen 66 i Hägersten, Midsommarkransen eller boka en
+            tid online.
+          </p>
+          <div className={styles.actions}>
+            <a className="button primary" href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" target="_blank" rel="noopener noreferrer">Boka tid</a>
+            <a className="button primary" href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" target="_blank" rel="noopener noreferrer">Boka kostnadsfri hudanalys</a>
+          </div>
+          <p>
+            <strong>Läs mer:</strong>{' '}
+            <a href="/behandlingar/medicinsk-hudvard">Alla behandlingar</a>{' · '}
+            <a href="/behandlingar/medicinsk-hudvard">Hudanalys</a>{' · '}
+            <a href="/kontakt">Kontakt</a>
           </p>
         </div>
       </section>

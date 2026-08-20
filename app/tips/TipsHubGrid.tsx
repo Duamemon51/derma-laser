@@ -16,6 +16,16 @@ const clusters = [
   'Laser hair removal',
 ];
 
+const clusterLabels: Record<string, string> = {
+  'Alla': 'Alla guider',
+  'Acne & congestion': 'Akne & porer',
+  Pigmentation: 'Pigmentering & hudstruktur',
+  'Facials & skin renewal': 'Ansiktsbehandlingar',
+  'Sensitive skin & skin barrier': 'Känslig hud & hudbarriär',
+  'CO2 resurfacing': 'CO2-laser',
+  'Laser hair removal': 'Laser hårborttagning',
+};
+
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString('sv-SE', {
     year: 'numeric',
@@ -41,7 +51,7 @@ export default function TipsHubGrid({ guides }: { guides: Guide[] }) {
             aria-pressed={activeCluster === cluster}
             onClick={() => setActiveCluster(cluster)}
           >
-            {cluster}
+            {clusterLabels[cluster]}
           </button>
         ))}
       </nav>

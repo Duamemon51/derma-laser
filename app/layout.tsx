@@ -12,14 +12,16 @@ const siteUrl = 'https://www.dermalaserstudio.se';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Derma Laser Studio | Avancerad hudvård & laserbehandlingar',
+    default: 'Hudvård Stockholm | Ansiktsbehandling & Laser | Dermalaser',
     template: '%s | Derma Laser Studio',
   },
   description:
-    'Personlig hudvård, laserbehandlingar och estetiska behandlingar med fokus på naturliga resultat. Boka konsultation hos Derma Laser Studio.',
+    'Hudvård och avancerade ansiktsbehandlingar i Stockholm. Akne, Hydrafacial, peeling, pigmentering, Carbon Peel, CO2-laser och diodlaser. Boka online.',
   keywords: [
-    'laserbehandling',
-    'hudvård',
+    'hudvård Stockholm',
+    'ansiktsbehandling Stockholm',
+    'hudterapeut Stockholm',
+    'hudvård Hägersten',
     'hudföryngring',
     'estetiska behandlingar',
     'medicinsk hudvård',
@@ -32,15 +34,15 @@ export const metadata: Metadata = {
     locale: 'sv_SE',
     url: siteUrl,
     siteName: 'Derma Laser Studio',
-    title: 'Derma Laser Studio | Avancerad hudvård & laserbehandlingar',
+    title: 'Hudvård Stockholm | Ansiktsbehandling & Laser | Dermalaser',
     description:
-      'Avancerad skönhet. Naturliga resultat. Personliga behandlingar anpassade efter just dig.',
+      'Hudvård och avancerade ansiktsbehandlingar i Stockholm. Boka din behandling eller kostnadsfria hudanalys online.',
     images: [{ url: '/images/hero-clinic.webp', width: 1200, height: 630, alt: 'Behandling på Derma Laser Studio' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Derma Laser Studio',
-    description: 'Avancerad hudvård och estetiska behandlingar med naturliga resultat.',
+    title: 'Hudvård Stockholm | Dermalaser',
+    description: 'Avancerad hudvård, ansiktsbehandlingar och laser i Stockholm.',
     images: ['/images/hero-clinic.webp'],
   },
   robots: { index: true, follow: true },

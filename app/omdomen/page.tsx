@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
-import { serviceLinks } from '../../components/services';
+import { serviceLinks } from '@/components/services';
 import GalleryReviews from './GalleryReviews';
 import styles from './page.module.css';
 

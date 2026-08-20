@@ -10,17 +10,17 @@ type HeaderProps = {
 };
 
 const treatmentSlugs: Record<string, string> = {
-  Laserbehandlingar: 'laserbehandlingar',
-  Hudföryngring: 'hudforengring',
-  Injektioner: 'injektioner',
-  'Medicinsk hudvård': 'medicinsk-hudvard',
-  Kroppsvård: 'kroppsvard',
-  'Klassisk massage': 'klassisk-massage',
-  'Lyxbehandling för 1/2': 'lyxbehandling-1-2',
-  'Spaavdelning med bubbelpool & privat IR-bastu': 'spa-och-ir-bastu',
-  'Fotbehandling/Pedikyr': 'fotbehandling-pedikyr',
-  'Hudvård/Ansikte': 'hudvard-ansikte',
-  Övrigt: 'ovrigt',
+  Hudanalys: 'hudanalys-stockholm',
+  'Akne & oren hud': 'aknebehandling-stockholm',
+  'Känslig & reaktiv hud': 'kanslig-hud-stockholm',
+  'Pigmentering & ojämn hudton': 'pigmentering-stockholm',
+  'Signature Premium Hudbehandling': 'signature-hudbehandling-stockholm',
+  'Klassisk Hudbehandling': 'ansiktsbehandling-stockholm',
+  'Kemisk peeling': 'kemisk-peeling-stockholm',
+  Hydrafacial: 'hydrafacial-stockholm',
+  'Carbon Peel': 'carbon-peel-stockholm',
+  'Diodlaser hårborttagning': 'laser-harborttagning-stockholm',
+  'CO2 Laser Resurfacing': 'co2-laser-stockholm',
 };
 
 export default function Header({ treatments, light = false }: HeaderProps) {
@@ -87,7 +87,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
               <span className="chev"><ChevronDown size={24} strokeWidth={1.5} aria-hidden="true" /></span>
             </button>
            
-            <Link href="/boka-tid">Boka tid</Link>
+            <a href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" target="_blank" rel="noopener noreferrer">Boka tid</a>
           </div>
 
           <Link className="brand" href="/" aria-label="Derma Laser Studio startsida">
@@ -203,7 +203,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
 
             <div className="menuPanelFooter">
             
-              <Link href="/boka-tid" className="menuPanelFooterLink" onClick={() => setMenuOpen(false)}>Boka tid</Link>
+              <a href="https://www.bokadirekt.se/places/dermalaser-studio-stockolm-34089" className="menuPanelFooterLink" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>Boka tid</a>
             </div>
           </div>
         </div>

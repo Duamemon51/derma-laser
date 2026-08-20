@@ -1,6 +1,24 @@
+// ============================================================
+// TYPES
+// ============================================================
+
+export type RelatedLink = {
+  label: string;
+  href: string;
+};
+
 export type GuideSection = {
   heading: string;
-  body: string[]; // paragraphs
+  body: string[];
+};
+
+export type GuideCTA = {
+  heading: string;
+  text: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref?: string;
 };
 
 export type Guide = {
@@ -14,337 +32,946 @@ export type Guide = {
   intro: string[];
   sections: GuideSection[];
   faq?: { q: string; a: string }[];
+  relatedLinks?: RelatedLink[];
+  cta?: GuideCTA;
 };
 
+// ============================================================
+// GUIDES
+// ============================================================
+
 export const guides: Guide[] = [
+  // --- pormaskar -------------------------------------------------
   {
-    slug: 'hormonal-acne-causes-treatment',
-    cluster: 'Acne & congestion',
-    title: 'Vad orsakar hormonell akne — och hur behandlar du den?',
-    date: '2025-06-10',
+    slug: 'pormaskar',
+    cluster: 'Pore care & congestion',
+    title: 'Pormaskar - varför får man dem och vad kan man göra?',
+    date: '2025-07-01',
     image:
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&h=800&fit=crop',
     excerpt:
-      'Hormonell akne skiljer sig från vanlig ungdomsakne både i mönster och orsak. Här går vi igenom varför den uppstår och vilka behandlingar som faktiskt fungerar.',
-    readTime: '7 min läsning',
+      'Vad orsakar pormaskar och hur får man bort dem på riktigt? Här går vi igenom varför porer täpps till, vanliga misstag och vilka behandlingar som faktiskt hjälper.',
+    readTime: '5 min läsning',
     intro: [
-      'Om du fortsätter få finnar längs käklinjen och hakan långt efter tonåren är du inte ensam. Hormonell akne drabbar en stor andel vuxna, och särskilt kvinnor, ofta i cykler som följer menstruationen.',
-      'Till skillnad från ungdomsakne, som gärna sprider sig över hela ansiktet, tenderar hormonell akne att koncentreras till nedre delen av ansiktet: käke, haka och hals.',
+      'Pormaskar är en av de vanligaste hudbekymmer som får folk att söka efter nya rutiner och behandlingar. De är ofarliga rent medicinskt, men kan kännas envisa och svåra att bli av med permanent.',
+      'Här reder vi ut vad pormaskar egentligen är, varför de uppstår och vad som faktiskt gör skillnad — både hemma och hos en klinik.',
     ],
     sections: [
       {
-        heading: 'Varför uppstår hormonell akne?',
+        heading: 'Vad är pormaskar?',
         body: [
-          'Androgener, en grupp hormoner som bland annat testosteron tillhör, stimulerar talgkörtlarna att producera mer talg. När talgproduktionen ökar täpper den lättare till porerna tillsammans med döda hudceller, vilket skapar en grogrund för den bakterie som kallas C. acnes.',
-          'Hos många kvinnor svänger androgennivåerna under menstruationscykeln, vilket förklarar varför utbrott ofta dyker upp strax innan mens. Andra vanliga utlösare är att sätta in eller sluta med p-piller, graviditet, PCOS (polycystiskt ovariesyndrom) och perimenopaus.',
-          'Stress spelar också in indirekt — kortisol kan påverka talgproduktionen och förvärra inflammation, vilket gör att en redan känslig hud reagerar starkare.',
+          'Pormaskar uppstår när porer fylls med talg och döda hudceller. Öppna komedoner, som pormaskar också kallas, blir mörka när innehållet i poren oxiderar i kontakt med luft.',
+          'Den mörka färgen betyder inte att poren är smutsig eller dåligt rengjord — det är en naturlig kemisk reaktion, inte ett tecken på bristande hygien.',
         ],
       },
       {
-        heading: 'Så känner du igen mönstret',
+        heading: 'Varför får man pormaskar?',
         body: [
-          'Hormonell akne visar sig oftast som djupa, ömma cystor snarare än ytliga pormaskar. Den sitter typiskt längs käklinjen, på hakan och ibland nedåt halsen, och tenderar att komma tillbaka på ungefär samma ställe varje månad.',
-          'Om du kan koppla utbrotten till din cykel, till ett hormonellt preventivmedel eller till en livsfas som graviditet är det en stark signal om att hormoner ligger bakom.',
+          'Talgproduktion, hudens cellomsättning, vilka produkter man använder och individuell hudtyp kan alla påverka hur lätt porer täpps till.',
+          'Hud som producerar mer talg, eller där döda hudceller inte lossnar i normal takt, har generellt lättare för att utveckla pormaskar, särskilt i den så kallade T-zonen.',
         ],
       },
       {
-        heading: 'Behandlingar som fungerar',
+        heading: 'Ska man klämma pormaskar själv?',
         body: [
-          'Receptfria produkter med azelainsyra, niacinamid eller lågdoserad salicylsyra kan lugna inflammation och minska pormaskbildning utan att vara lika uttorkande som starkare aknemedel.',
-          'Kliniska behandlingar riktade mot inflammation och bakterieflora — till exempel kemisk peeling med syror, LED-ljusterapi eller riktad laserbehandling — kan komplettera hemmarutinen och påskynda läkning utan att riva upp huden mekaniskt.',
-          'I mer uttalade fall är det värt att prata med läkare om receptbelagda alternativ, exempelvis hormonella preventivmedel eller antiandrogena läkemedel, som angriper själva orsaken snarare än symptomen.',
+          'Felaktig klämning kan irritera huden och ge inflammation, och i värsta fall lämna märken efter sig.',
+          'Professionell rengöring och ett balanserat hemma-upplägg är ofta ett skonsammare och mer hållbart sätt att hantera pormaskar över tid.',
         ],
       },
       {
-        heading: 'Vanliga misstag att undvika',
+        heading: 'Professionella behandlingar',
         body: [
-          'Att skrubba huden hårdare gör oftast saken värre — mekanisk irritation triggar mer inflammation. Undvik även att klämma på cystor, eftersom det ökar risken för ärrbildning.',
-          'Ge en ny rutin minst 8–12 veckor innan du bedömer om den fungerar. Hudceller förnyas långsamt, och hormonell akne svarar sällan på behandling inom bara några dagar.',
+          'Beroende på hudens övriga tillstånd kan Hydrafacial, Carbon Peel, kemisk peeling eller en riktad akne- och renande behandling vara relevanta alternativ.',
+          'En hudanalys hjälper till att avgöra vilken behandling som passar bäst utifrån just din hudtyp och dina porer.',
+        ],
+      },
+      {
+        heading: 'Undvik att överbehandla',
+        body: [
+          'För många syror, skrubb och stark rengöring samtidigt kan skada hudbarriären och göra huden mer reaktiv snarare än renare.',
+          'En enklare, mer konsekvent rutin ger ofta bättre och mer stabila resultat än att kombinera flera aggressiva produkter samtidigt.',
         ],
       },
     ],
     faq: [
       {
-        q: 'Kan kost påverka hormonell akne?',
-        a: 'Vissa studier pekar på ett samband mellan mejeriprodukter, högglykemisk kost och ökad akneaktivitet, men effekten varierar mycket mellan individer.',
+        q: 'Kan pormaskar försvinna permanent?',
+        a: 'Porer kan täppas till igen, så långsiktig hudvård och regelbundet underhåll kan behövas för att hålla dem rena över tid.',
       },
       {
-        q: 'Hur länge tar det innan man ser resultat?',
-        a: 'Räkna med minst två till tre menstruationscykler innan en ny rutin eller behandling ger tydlig effekt, eftersom hormonella mönster behöver tid att stabiliseras.',
+        q: 'Är svarta pormaskar smuts?',
+        a: 'Nej. Den mörka färgen uppstår främst genom oxidation i porens öppning, inte genom smuts eller dålig rengöring.',
       },
+      {
+        q: 'Vilken behandling passar bäst?',
+        a: 'Det beror på hudens övriga tillstånd. Hydrafacial och Carbon Peel är två vanliga alternativ hos Dermalaser.',
+      },
+      {
+        q: 'Kan känslig hud ha pormaskar?',
+        a: 'Ja. Då behöver rengöring och exfoliering anpassas så att huden inte stressas eller irriteras i onödan.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Hydrafacial', href: '/hydrafacial-stockholm/' },
+      { label: 'Carbon Peel', href: '/carbon-peel-stockholm/' },
+      { label: 'Aknebehandling', href: '/aknebehandling-stockholm/' },
+      { label: 'Hudanalys', href: '/hudanalys-stockholm/' },
     ],
   },
+
+  // --- vilken-ansiktsbehandling -----------------------------------
   {
-    slug: 'melasma-vs-sun-spots',
-    cluster: 'Pigmentation',
-    title: 'Melasma vs solfläckar: så skiljer du dem åt',
-    date: '2025-05-28',
-    image:
-      'https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1200&h=800&fit=crop',
-    excerpt:
-      'Båda visar sig som mörka fläckar i huden, men orsak, mönster och rätt behandling skiljer sig avsevärt. Att blanda ihop dem kan göra pigmenteringen värre.',
-    readTime: '6 min läsning',
-    intro: [
-      'Pigmentfläckar är ett av de vanligaste skälen till att söka hudvårdsrådgivning, men alla mörka fläckar är inte samma tillstånd. Melasma och solfläckar (soltorkade fläckar/lentigo) ser ibland lika ut för blotta ögat men kräver helt olika angreppssätt.',
-    ],
-    sections: [
-      {
-        heading: 'Vad är melasma?',
-        body: [
-          'Melasma är ett hormonellt kopplat pigmentproblem som visar sig som symmetriska, ofta suddiga fläckar över kinder, panna, näsa och överläpp. Det utlöses av en kombination av solexponering, hormonella förändringar (graviditet, p-piller) och genetisk benägenhet.',
-          'Det som gör melasma särskilt knepigt är att det kan förvärras av just de behandlingar som normalt hjälper mot andra pigmentfläckar, eftersom aggressiv värme eller irritation kan trigga mer melaninproduktion.',
-        ],
-      },
-      {
-        heading: 'Vad är solfläckar?',
-        body: [
-          'Solfläckar, eller lentigo solaris, är resultatet av ackumulerad UV-skada över tid. De är oftast väl avgränsade, bruna och dyker upp på områden som fått mest sol genom åren — händer, decolletage, axlar och ansikte.',
-          'Till skillnad från melasma är solfläckar inte hormonellt drivna och tenderar att svara mer förutsägbart på pigmentriktade behandlingar.',
-        ],
-      },
-      {
-        heading: 'Så skiljer du dem åt',
-        body: [
-          'Titta på mönstret: melasma är oftast symmetriskt och diffust, medan solfläckar är mer punktvisa och skarpt avgränsade. Melasma flammar ofta upp vid hormonella förändringar eller värme, medan solfläckar är mer stabila över tid.',
-          'Vid osäkerhet är en professionell bedömning värt besväret — fel behandling på melasma kan förvärra tillståndet avsevärt.',
-        ],
-      },
-      {
-        heading: 'Behandlingsstrategier',
-        body: [
-          'För solfläckar fungerar riktade laserbehandlingar och kemisk peeling ofta väl, eftersom målet är att bryta ner befintligt pigment.',
-          'För melasma är försiktighet nyckelordet: milda syror, azelainsyra, tranexamsyra och strikt solskydd (SPF 50, upprepad applicering) är grunden. Aggressiva laserbehandlingar undviks ofta helt eller görs med mycket låg intensitet under noggrann övervakning, eftersom värme kan förvärra tillståndet.',
-          'Oavsett fläcktyp är daglig, konsekvent solskyddsfaktor den enskilt viktigaste faktorn för att förhindra att fläckarna kommer tillbaka.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: 'Försvinner melasma av sig själv?',
-        a: 'Ibland tonas melasma ner efter graviditet eller vid utsättning av hormonella preventivmedel, men det försvinner sällan helt utan aktiv hantering och strikt solskydd.',
-      },
-    ],
-  },
-  {
-    slug: 'hydrafacial-explained',
+    slug: 'vilken-ansiktsbehandling',
     cluster: 'Facials & skin renewal',
-    title: 'Hydrafacial förklarat: vad det gör och för vem',
-    date: '2025-05-14',
+    title: 'Vilken ansiktsbehandling passar min hud?',
+    date: '2025-07-08',
     image:
       'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&h=800&fit=crop',
     excerpt:
-      'En av de mest populära ansiktsbehandlingarna just nu — men vad gör den egentligen, och skiljer den sig från en klassisk djuprengöring?',
+      'Hydrafacial, peeling, Carbon Peel eller klassisk behandling? Här går vi igenom vilken ansiktsbehandling som passar olika hudbehov — och när en hudanalys är bättre än att gissa.',
     readTime: '5 min läsning',
     intro: [
-      'Hydrafacial har blivit något av en modern klassiker bland ansiktsbehandlingar, tack vare att den kombinerar rengöring, exfoliering och återfuktning i ett och samma steg — utan nedtid.',
+      'Det finns ingen ansiktsbehandling som är bäst för alla. Vilken som passar dig bäst beror i första hand på vilket behov huden faktiskt har just nu, snarare än vilken behandling som är mest populär.',
+      'Här går vi igenom hur du kan tänka utifrån hudens tillstånd — och när det är läge att låta en hudanalys avgöra istället för att gissa utifrån behandlingsnamn.',
     ],
     sections: [
       {
-        heading: 'Hur fungerar behandlingen?',
+        heading: 'Börja med hudens behov',
         body: [
-          'Behandlingen bygger på ett patenterat vortex-system som samtidigt löser upp och suger bort smuts, talg och döda hudceller medan huden tillförs fuktighetsserum. Processen sker i flera steg: rengöring och peeling, en mild syrelösning som löser upp proppar i porerna, extraktion med vakuumsug, och avslutningsvis serum anpassat efter hudens behov (återfuktning, lyster eller lugnande verkan).',
-          'Hela behandlingen tar vanligtvis 30–45 minuter och kräver ingen bedövning, eftersom den inte penetrerar huden på samma sätt som nålbaserade behandlingar.',
+          'Det viktigaste är att identifiera om huden främst är tilltäppt, torr, känslig, pigmenterad, glåmig eller har förändrad struktur.',
+          'Genom att utgå från symptomet snarare än en specifik behandling blir det lättare att välja rätt — och undvika att lägga tid och pengar på något som inte adresserar det faktiska problemet.',
         ],
       },
       {
-        heading: 'Vad skiljer den från en klassisk ansiktsbehandling?',
+        heading: 'Om huden är tilltäppt eller har pormaskar',
         body: [
-          'En traditionell djuprengöring innefattar ofta manuell extraktion av pormaskar, vilket kan vara obehagligt och riskerar att irritera huden. Hydrafacials vakuumbaserade extraktion är betydligt skonsammare och jämnare, vilket gör att röda märken och svullnad minimeras.',
-          'Till skillnad från kemiska peelingar med längre nedtid ger Hydrafacial synlig lyster direkt efter behandling, vilket gör den populär inför event eller som ett återkommande underhåll.',
+          'Hydrafacial, klassisk hudbehandling eller Carbon Peel kan vara relevanta beroende på hur känslig huden är och hur mycket talg och tilltäppthet som finns.',
         ],
       },
       {
-        heading: 'Vem passar behandlingen för?',
+        heading: 'Om huden känns torr eller glåmig',
         body: [
-          'Eftersom intensiteten och serumen kan anpassas fungerar Hydrafacial för de flesta hudtyper, inklusive känslig hud, förutsatt att man kommunicerar eventuell känslighet eller pågående hudproblem till behandlaren innan start.',
-          'Den passar särskilt bra för dig som vill ha synligt resultat utan nedtid, som kämpar med matt hy, ojämn textur eller lätt igentäppta porer, eller som vill komplettera mer intensiva behandlingar som laser med regelbundet underhåll.',
+          'Hydrafacial har tydligt fokus på rengöring och återfuktning, vilket gör den till ett bra val vid matthet och torrhet.',
+          'En klassisk behandling kan också passa bra för regelbundet underhåll av hudens fukt- och lysternivå.',
         ],
       },
       {
-        heading: 'Hur ofta bör man göra Hydrafacial?',
+        heading: 'Om du vill arbeta med pigmentering eller struktur',
         body: [
-          'För underhåll rekommenderas ofta en behandling var fjärde till sjätte vecka, vilket följer hudens naturliga förnyelsecykel. Vid specifika mål, som att förbereda huden inför ett tillfälle, kan en enstaka behandling göra tydlig skillnad redan samma dag.',
+          'Kemisk peeling kan vara relevant vid ojämn hudton och ojämn hudstruktur, eftersom den arbetar med kontrollerad exfoliering.',
+          'Vid mer uttalade akneärr och strukturförändringar kan CO2-laser vara en separat, mer avancerad behandlingsnivå att överväga.',
+        ],
+      },
+      {
+        heading: 'Om huden är känslig',
+        body: [
+          'Mer aktiv behandling är inte alltid bättre. Känslig och reaktiv hud kan behöva ett lugnande och barriärstärkande fokus först, innan mer intensiva behandlingar introduceras.',
+        ],
+      },
+      {
+        heading: 'När du fortfarande är osäker',
+        body: [
+          'Boka hudanalys. Det är ofta bättre än att gissa utifrån behandlingsnamn, eftersom en analys utgår från hudens faktiska tillstånd snarare än vad som låter mest lockande.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Vad är bäst - Hydrafacial eller kemisk peeling?',
+        a: 'Hydrafacial fokuserar mer på rengöring och fukt. Kemisk peeling fokuserar mer på kontrollerad exfoliering och hudförnyelse.',
+      },
+      {
+        q: 'Vilken behandling passar pormaskar?',
+        a: 'Hydrafacial, Carbon Peel eller en akne- och renande behandling kan vara relevanta beroende på huden.',
+      },
+      {
+        q: 'Vilken behandling ger glow?',
+        a: 'Flera behandlingar kan förbättra lyster, men valet bör styras av hudens behov och tolerans snarare än ett enskilt löfte om glow.',
+      },
+      {
+        q: 'Vad gör jag om jag har flera hudproblem samtidigt?',
+        a: 'Boka hudanalys och låt behandlingsplanen prioritera vad huden behöver först.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Hudanalys', href: '/hudanalys-stockholm/' },
+      { label: 'Hydrafacial', href: '/hydrafacial-stockholm/' },
+      { label: 'Kemisk peeling', href: '/kemisk-peeling-stockholm/' },
+      { label: 'Carbon Peel', href: '/carbon-peel-stockholm/' },
+      { label: 'Klassisk ansiktsbehandling', href: '/ansiktsbehandling-stockholm/' },
+    ],
+  },
+
+  // --- vuxenakne ---------------------------------------------------
+  {
+    slug: 'vuxenakne',
+    cluster: 'Acne & congestion',
+    title: 'Vuxenakne - varför får man finnar som vuxen?',
+    date: '2025-07-15',
+    image:
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&fit=crop',
+    excerpt:
+      'Finnar som vuxen? Läs om vuxenakne, vanliga orsaker, vad du bör undvika och vilka professionella hudbehandlingar som kan passa.',
+    readTime: '5 min läsning',
+    intro: [
+      'Många tänker på akne som något som hör tonåren till, men verkligheten är en annan — återkommande utbrott är vanligt även långt senare i livet.',
+      'Här går vi igenom varför vuxenakne uppstår, vanliga misstag att undvika och hur professionell behandling kan anpassas efter hudens tillstånd.',
+    ],
+    sections: [
+      {
+        heading: 'Akne slutar inte alltid efter tonåren',
+        body: [
+          'Många får återkommande utbrott även som vuxna. De kan förekomma på haka, käklinje, kinder, panna eller flera områden samtidigt.',
+        ],
+      },
+      {
+        heading: 'Vuxenakne kan ha flera orsaker',
+        body: [
+          'Talgproduktion, hormoner, stress, produkter, hudbarriär och andra individuella faktorer kan samverka.',
+          'Därför bör man undvika att utgå från en enda orsak utan en ordentlig bedömning av huden i sin helhet.',
+        ],
+      },
+      {
+        heading: 'Vanliga misstag',
+        body: [
+          'Ett vanligt misstag är att försöka torka ut huden med många starka produkter samtidigt.',
+          'Det kan göra huden mer irriterad utan att lösa grundproblemet, och riskerar istället att försvaga hudbarriären ytterligare.',
+        ],
+      },
+      {
+        heading: 'Professionell behandling',
+        body: [
+          'En aknebehandling kan anpassas efter om huden är inflammerad, tilltäppt, känslig eller har märken efter tidigare utbrott.',
+        ],
+      },
+      {
+        heading: 'När aknen lämnat märken',
+        body: [
+          'Efter att aktiv akne lugnat sig kan pigmentering eller förändrad struktur behöva en separat behandlingsplan.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Är vuxenakne vanligt?',
+        a: 'Ja, akne kan förekomma långt efter tonåren.',
+      },
+      {
+        q: 'Är finnar på hakan alltid hormonella?',
+        a: 'Nej. Placeringen ensam räcker inte för att säkert fastställa orsak.',
+      },
+      {
+        q: 'Ska jag använda starkare produkter?',
+        a: 'Inte nödvändigtvis. För mycket aktiv hudvård kan irritera och försvaga hudbarriären.',
+      },
+      {
+        q: 'Vilken behandling erbjuder Dermalaser?',
+        a: 'Dermalaser har en 45-minuters behandling för akne och oren hud som anpassas individuellt.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Aknebehandling', href: '/aknebehandling-stockholm/' },
+      { label: 'Pormaskar', href: '/tips/pormaskar/' },
+      { label: 'Kemisk peeling', href: '/kemisk-peeling-stockholm/' },
+      { label: 'Hudanalys', href: '/hudanalys-stockholm/' },
+    ],
+  },
+
+  // --- aknearr -------------------------------------------------------
+  {
+    slug: 'aknearr',
+    cluster: 'CO2 resurfacing',
+    title: 'Akneärr - märken, pigmentering och förändrad hudstruktur',
+    date: '2025-07-22',
+    image:
+      'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1200&h=800&fit=crop',
+    excerpt:
+      'Läs om akneärr, märken efter finnar och vilka hudbehandlingar som kan användas för ojämn hudstruktur och förändringar efter akne.',
+    readTime: '5 min läsning',
+    intro: [
+      'Märken efter akne kan se väldigt olika ut beroende på vad som faktiskt orsakar dem — och det påverkar vilken behandling som är rimlig att gå vidare med.',
+      'Här går vi igenom skillnaden mellan pigmentmärken och faktiska strukturförändringar, och vilka behandlingsnivåer som finns.',
+    ],
+    sections: [
+      {
+        heading: 'Alla märken efter akne är inte ärr',
+        body: [
+          'Efter inflammation kan röda eller mörka märken finnas kvar utan att hudens struktur är permanent förändrad.',
+        ],
+      },
+      {
+        heading: 'När hudstrukturen förändrats',
+        body: [
+          'Djupare akne kan lämna gropar, ojämnheter eller annan förändring i hudens yta.',
+          'Typen av förändring påverkar vilken behandling som är rimlig att överväga.',
+        ],
+      },
+      {
+        heading: 'Behandling av pigmentmärken',
+        body: [
+          'Om problemet främst är färgförändring kan pigmentinriktad behandling eller peeling vara mer relevant än en behandling för struktur.',
+        ],
+      },
+      {
+        heading: 'CO2-laser vid strukturförändringar',
+        body: [
+          'Dermalaser erbjuder fraktionerad CO2 Laser Resurfacing som en mer avancerad behandlingsnivå för bland annat akneärr och ojämn hudstruktur.',
+        ],
+      },
+      {
+        heading: 'Realistiska förväntningar',
+        body: [
+          'Hudstruktur förbättras vanligtvis stegvis. Målet bör vara förbättring, inte löften om helt ärrfri hud.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Vad är skillnaden mellan akneärr och pigmentfläckar?',
+        a: 'Pigmentfläckar påverkar främst färg medan ärr kan innebära förändring i själva hudstrukturen.',
+      },
+      {
+        q: 'Kan CO2-laser användas mot akneärr?',
+        a: 'Ja, Dermalaser anger akneärr som ett användningsområde för CO2 Laser Resurfacing.',
+      },
+      {
+        q: 'Hur många behandlingar behövs?',
+        a: 'Det beror på typ och djup av ärr, hudens egenskaper och hur den läker.',
+      },
+      {
+        q: 'Bör aktiv akne behandlas först?',
+        a: 'Ofta behöver aktiv inflammation vara under kontroll innan mer avancerad ärrbehandling planeras.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'CO2-laser', href: '/co2-laser-stockholm/' },
+      { label: 'Aknebehandling', href: '/aknebehandling-stockholm/' },
+      { label: 'Pigmentering', href: '/pigmentering-stockholm/' },
+      { label: 'Hudanalys', href: '/hudanalys-stockholm/' },
+    ],
+  },
+
+  // --- pigmentflackar ---------------------------------------------
+  {
+    slug: 'pigmentflackar',
+    cluster: 'Pigmentation',
+    title: 'Pigmentfläckar i ansiktet - varför uppstår de och vad kan man göra?',
+    date: '2025-07-29',
+    image:
+      'https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=1200&h=800&fit=crop',
+    excerpt:
+      'Läs varför pigmentfläckar uppstår, vad som kan förvärra dem och vilka behandlingar som kan passa vid ojämn hudton.',
+    readTime: '5 min läsning',
+    intro: [
+      'Ojämn hudton är ett av de vanligaste skälen till att man söker ny hudvård eller behandling — men pigmentfläckar kan ha flera olika bakomliggande orsaker.',
+      'Här går vi igenom varför pigmentfläckar uppstår, vad som kan förvärra dem och vilka behandlingsalternativ som finns.',
+    ],
+    sections: [
+      {
+        heading: 'Vad är pigmentfläckar?',
+        body: [
+          'Pigmentfläckar är områden där huden producerar eller lagrar mer pigment än omkringliggande hud.',
+          'De kan se olika ut och ha olika orsaker, vilket gör att en och samma behandling inte alltid passar alla typer.',
+        ],
+      },
+      {
+        heading: 'Solen spelar ofta en roll',
+        body: [
+          'UV-exponering kan göra många pigmentförändringar tydligare.',
+          'Solskydd är därför en viktig del av ett långsiktigt upplägg, oavsett vilken typ av pigmentering det handlar om.',
+        ],
+      },
+      {
+        heading: 'Märken efter inflammation',
+        body: [
+          'Finnar och irritation kan lämna mörkare märken efter att inflammationen lagt sig.',
+          'Dessa behöver inte vara samma sak som ärr, även om de kan se snarlika ut till en början.',
+        ],
+      },
+      {
+        heading: 'Behandlingsalternativ',
+        body: [
+          'Beroende på huden kan pigmentbehandling, kemisk peeling eller annan hudförnyelse vara relevant.',
+          'Valet bör göras individuellt utifrån hudens övriga tillstånd, inte enbart utifrån hur fläckarna ser ut.',
+        ],
+      },
+      {
+        heading: 'Var försiktig med aggressiv behandling',
+        body: [
+          'För intensiv behandling kan irritera huden och i vissa hudtyper riskera att förvärra pigmentproblem.',
+          'Rätt nivå är viktigare än maximal styrka.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Kan pigmentfläckar komma tillbaka?',
+        a: 'Ja, särskilt om utlösande faktorer som UV-exponering kvarstår.',
+      },
+      {
+        q: 'Kan peeling hjälpa?',
+        a: 'Vissa peelingar används vid ojämn hudton och pigmentering.',
+      },
+      {
+        q: 'Är alla mörka märken samma typ av pigmentering?',
+        a: 'Nej. Därför är bedömning viktig innan behandling.',
+      },
+      {
+        q: 'Behöver jag använda solskydd?',
+        a: 'Solskydd är en central del av att förebygga att många pigmentförändringar förvärras.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Pigmentbehandling', href: '/pigmentering-stockholm/' },
+      { label: 'Kemisk peeling', href: '/kemisk-peeling-stockholm/' },
+      { label: 'Hudanalys', href: '/hudanalys-stockholm/' },
+    ],
+  },
+
+  // --- hydrafacial ---------------------------------------------------
+  {
+    slug: 'hydrafacial',
+    cluster: 'Facials & skin renewal',
+    title: 'Hydrafacial - vad är det och vem passar behandlingen?',
+    date: '2025-08-05',
+    image:
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&h=800&fit=crop',
+    excerpt:
+      'Vad gör Hydrafacial? Läs om behandlingen, vem den passar och skillnaden mellan Hydrafacial, Carbon Peel och kemisk peeling.',
+    readTime: '4 min läsning',
+    intro: [
+      'Hydrafacial är en av de mest omtalade ansiktsbehandlingarna just nu, men det är inte alltid tydligt vad den faktiskt gör eller hur den skiljer sig från andra populära behandlingar.',
+      'Här går vi igenom vad Hydrafacial är, vem den passar och hur den jämförs med Carbon Peel och kemisk peeling.',
+    ],
+    sections: [
+      {
+        heading: 'Vad är Hydrafacial?',
+        body: [
+          'Hydrafacial är en ansiktsbehandling som kombinerar rengöring, exfoliering och återfuktning i samma session.',
+        ],
+      },
+      {
+        heading: 'Vad kan man förvänta sig?',
+        body: [
+          'Dermalaser beskriver behandlingen som djuprengörande och återfuktande, med en renare, mjukare och mer balanserad känsla efteråt.',
+        ],
+      },
+      {
+        heading: 'Vem passar behandlingen?',
+        body: [
+          'Den kan vara relevant vid tilltäppt hud, ojämn struktur, glåmighet, yttorrhet och hud som känns trött.',
+        ],
+      },
+      {
+        heading: 'Hydrafacial jämfört med Carbon Peel',
+        body: [
+          'Hydrafacial fokuserar mer på fukt och rengöring. Carbon Peel riktar sig mer mot talg, porer och fet eller tilltäppt hud.',
+        ],
+      },
+      {
+        heading: 'Hydrafacial jämfört med peeling',
+        body: [
+          'Kemisk peeling har mer fokus på kontrollerad kemisk exfoliering och hudförnyelse, medan Hydrafacial är ett mer direkt rengörings- och fuktfokuserat alternativ.',
         ],
       },
     ],
     faq: [
       {
         q: 'Gör Hydrafacial ont?',
-        a: 'Nej, de flesta upplever behandlingen som avslappnande snarare än obehaglig, eftersom den inte innefattar nålar eller aggressiv manuell extraktion.',
+        a: 'Upplevelsen varierar, men behandlingen marknadsförs som skonsam och anpassas efter huden.',
       },
       {
-        q: 'Finns det någon nedtid?',
-        a: 'I princip ingen. Huden kan vara lätt rodnad direkt efteråt, men de flesta kan gå tillbaka till vardagen, inklusive smink, samma dag.',
+        q: 'Kan man göra den regelbundet?',
+        a: 'Ja, Dermalaser anger att Hydrafacial kan ingå i en regelbunden hudvårdsrutin.',
+      },
+      {
+        q: 'Passar den känslig hud?',
+        a: 'Det beror på hudens aktuella tillstånd och bör bedömas individuellt.',
+      },
+      {
+        q: 'Vad kostar Hydrafacial hos Dermalaser?',
+        a: '895 kr för 30 minuter.',
       },
     ],
+    relatedLinks: [
+      { label: 'Hydrafacial behandling', href: '/hydrafacial-stockholm/' },
+      { label: 'Carbon Peel', href: '/carbon-peel-stockholm/' },
+      { label: 'Kemisk peeling', href: '/kemisk-peeling-stockholm/' },
+    ],
   },
+
+  // --- kemisk-peeling -------------------------------------------------
   {
-    slug: 'repair-skin-barrier',
-    cluster: 'Sensitive skin & skin barrier',
-    title: 'Så reparerar du en skadad hudbarriär, steg för steg',
-    date: '2025-04-30',
+    slug: 'kemisk-peeling',
+    cluster: 'Peels & resurfacing',
+    title: 'Kemisk peeling - komplett guide',
+    date: '2025-08-12',
     image:
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1200&h=800&fit=crop',
     excerpt:
-      'Stramhet, rodnad, sting och plötslig känslighet mot produkter du tidigare tålt bra är klassiska tecken på en försvagad hudbarriär. Så bygger du upp den igen.',
-    readTime: '8 min läsning',
+      'Läs hur kemisk peeling fungerar, vad den kan användas till och vad som skiljer PRX-T33, BioRePeel och andra peelingar.',
+    readTime: '5 min läsning',
     intro: [
-      'Hudbarriären, det yttersta lagret av huden, fungerar som en mur mellan din kropp och omvärlden. När den skadas läcker fukt ut och irritanter tar sig lättare in, vilket skapar en ond cirkel av känslighet och inflammation.',
+      'Kemisk peeling är ett samlingsnamn för flera olika behandlingar, och skillnaderna mellan dem kan vara stora — både i styrka, syrasammansättning och vad de är tänkta att göra för huden.',
+      'Här går vi igenom vad kemisk peeling faktiskt innebär, vad den kan användas till och hur behandlingar som PRX-T33 och BioRePeelCl3 skiljer sig åt.',
     ],
     sections: [
       {
-        heading: 'Vad orsakar en skadad barriär?',
+        heading: 'Vad är kemisk peeling?',
         body: [
-          'Överexfoliering är en av de vanligaste bovarna — för många aktiva syror, retinol eller fysiska skrubb i tät följd bryter ner barriären snabbare än den hinner återuppbygga sig.',
-          'Andra vanliga orsaker är hårt vatten, aggressiva rengöringsmedel som strippar hudens naturliga oljor, extrem väderexponering, samt att kombinera för många starka aktiva ingredienser samtidigt utan upptrappning.',
+          'Kemisk peeling använder syror eller peelinglösningar för kontrollerad exfoliering och hudförnyelse.',
+          'Styrka och sammansättning varierar mellan behandlingar, vilket gör att effekten och känslan efteråt kan skilja sig mycket beroende på vilken peeling som används.',
         ],
       },
       {
-        heading: 'Tecken att se upp för',
+        heading: 'Vad kan peeling användas för?',
         body: [
-          'Ihållande stramhet även efter fuktkräm, sting eller brännande känsla vid produkter du tidigare tålt, ökad rodnad, en matt eller ojämn ton, samt att huden plötsligt reagerar på produkter som luktar eller är parfymerade trots att den inte gjort det tidigare.',
+          'Beroende på produkt och hud kan peeling vara relevant vid glåmighet, ojämn struktur, pigmentering, porer och oren hud.',
+          'Vilken typ som passar bäst avgörs av hudens tillstånd snarare än vilken peeling som är mest efterfrågad för tillfället.',
         ],
       },
       {
-        heading: 'Återuppbyggnadsstrategin',
+        heading: 'PRX-T33',
         body: [
-          'Steg ett är att pausa alla aktiva ingredienser — retinol, syror, starka peelingprodukter — i minst en till två veckor, även om det känns som ett steg bakåt.',
-          'Steg två är att förenkla rutinen radikalt: en mild, pH-balanserad rengöring, en fuktkräm rik på ceramider, kolesterol och fettsyror (de tre byggstenarna barriären själv består av), samt solskydd på dagen.',
-          'Steg tre är att introducera återuppbyggande ingredienser som niacinamid i låg koncentration och hyaluronsyra, som drar till sig fukt utan att irritera.',
-          'Steg fyra, när huden känns stabil igen (vanligtvis efter 3–6 veckor), är att sakta återinföra aktiva ingredienser en i taget, med god marginal mellan varje tillägg.',
+          'PRX-T33 är en TCA-baserad biorevitaliserande behandling som inte primärt syftar till kraftig fjällning.',
+          'Den passar därför ofta den som vill ha effekt på hudens kvalitet utan en lång period av synlig flagning efteråt.',
         ],
       },
       {
-        heading: 'Hur lång tid tar återhämtningen?',
+        heading: 'BioRePeelCl3',
         body: [
-          'En mildare barriärskada kan förbättras på en till två veckor med rätt rutin, medan en mer uttalad skada — särskilt efter långvarig överexfoliering — kan ta sex till åtta veckor att återställa fullt ut. Tålamod är avgörande; att forcera processen med fler aktiva produkter förlänger oftast återhämtningen.',
+          'BioRePeelCl3 kombinerar flera syror och hudvårdande komponenter och används bland annat vid pigmentering, porer, akne och ojämn struktur.',
+          'Den bredare kombinationen gör den till ett flexibelt alternativ vid flera samtidiga hudbekymmer.',
+        ],
+      },
+      {
+        heading: 'Starkare är inte alltid bättre',
+        body: [
+          'Rätt peeling väljs efter hudtyp, tillstånd och mål, inte efter vilken behandling som låter mest intensiv.',
+          'En för stark behandling kan skapa mer irritation än nytta, särskilt på hud som redan är känslig eller reaktiv.',
         ],
       },
     ],
     faq: [
       {
-        q: 'Kan man använda solskydd under återhämtningen?',
-        a: 'Ja, och det bör man — en skadad barriär är extra känslig för UV-skada. Välj gärna en mineralisk, mild formula om huden är särskilt reaktiv.',
+        q: 'Flagnar man alltid efter kemisk peeling?',
+        a: 'Nej. Hur mycket exfoliering som syns beror på produkt, styrka och hud.',
+      },
+      {
+        q: 'Kan peeling hjälpa mot akne?',
+        a: 'Vissa peelingar kan vara relevanta för oren eller aknebenägen hud efter bedömning.',
+      },
+      {
+        q: 'Kan peeling hjälpa pigmentering?',
+        a: 'Ja, vissa peelingar används med fokus på ojämn hudton och pigmentering.',
+      },
+      {
+        q: 'Vilken peeling ska jag välja?',
+        a: 'Låt hudanalysen styra. Dermalaser erbjuder flera alternativ och väljer efter huden.',
       },
     ],
+    relatedLinks: [
+      { label: 'Kemisk peeling behandling', href: '/kemisk-peeling-stockholm/' },
+      { label: 'Pigmentering', href: '/pigmentering-stockholm/' },
+      { label: 'Aknebehandling', href: '/aknebehandling-stockholm/' },
+    ],
   },
+
+  // --- carbon-peel -------------------------------------------------
   {
-    slug: 'co2-laser-hudforyngring-guide',
-    cluster: 'CO2 resurfacing',
-    title: 'Fraktionerad CO2-laser – En djupgående guide till hudföryngring',
-    date: '2025-06-23',
+    slug: 'carbon-peel',
+    cluster: 'Pore care & congestion',
+    title: 'Carbon Peel - så fungerar Hollywood Peel',
+    date: '2025-08-19',
     image:
       'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1200&h=800&fit=crop',
     excerpt:
-      'En av de mest effektiva behandlingarna mot ärr, fina linjer och ojämn textur. Här går vi igenom hur den fungerar, vad du kan förvänta dig och vem den passar för.',
-    readTime: '9 min läsning',
+      'Läs om Carbon Peel/Hollywood Peel för porer, fet hud, orenheter och hudstruktur och ta reda på om behandlingen passar dig.',
+    readTime: '4 min läsning',
     intro: [
-      'Fraktionerad CO2-laser räknas som en av de mer kraftfulla behandlingarna inom hudföryngring, med förmåga att adressera allt från ärr och fina linjer till ojämn pigmentering och förlorad hudspänst.',
+      'Carbon Peel, eller Hollywood Peel som den också kallas, är en av de behandlingar som ofta lyfts fram för fet hud och synliga porer — men det är inte alltid tydligt vad den faktiskt gör eller vem den passar bäst.',
+      'Här går vi igenom vad Carbon Peel innebär, vem behandlingen är relevant för och hur den skiljer sig från Hydrafacial.',
     ],
     sections: [
       {
-        heading: 'Hur fungerar tekniken?',
+        heading: 'Vad är Carbon Peel?',
         body: [
-          'Till skillnad från äldre, helt ablativa lasrar som behandlar hela hudytan på en gång, arbetar fraktionerad CO2-laser med mikroskopiska, spridda kolumner av behandlad hud, med oskadad hud emellan. Det innebär att laserenergin når djupare lager av huden och stimulerar kollagenproduktion, samtidigt som de obehandlade områdena runtomkring påskyndar läkningen betydligt jämfört med äldre metoder.',
-          'Värmen från lasern förångar de yttersta skadade cellagren och triggar samtidigt kroppens naturliga läkningsprocess, vilket över tid bygger upp nytt, fastare kollagen.',
+          'Carbon Peel är en behandling med fokus på djuprengöring, talg, porer och hudklarhet och kallas även Hollywood Peel.',
         ],
       },
       {
-        heading: 'Vad kan behandlingen adressera?',
+        heading: 'Vem passar behandlingen?',
         body: [
-          'Fraktionerad CO2 används framför allt mot ärr efter akne, fina linjer och rynkor, ojämn hudtextur, förstorade porer, samt viss pigmentering och solskadad hud. Effekten på hudens spänst och struktur är ofta mer uttalad än vid mildare behandlingar som mikronåling eller ytliga peelingar.',
+          'Den är särskilt relevant för personer som upplever fet hud, synliga porer, tilltäpptheter eller en glåmig och obalanserad hud.',
         ],
       },
       {
-        heading: 'Vad kan du förvänta dig av processen?',
+        heading: 'Kan porer bli mindre?',
         body: [
-          'Innan behandling bedövas huden lokalt. Själva behandlingen tar oftast 30–60 minuter beroende på behandlingsyta. Direkt efteråt är huden röd och känns som efter en kraftig solbränna, och inom några dagar kan ytan kännas skrovlig innan den gamla hudytan gradvis fjällar av.',
-          'Nedtiden varierar med intensiteten på behandlingen, men räkna generellt med 5–7 dagar med synlig rodnad och flagning innan huden ser presentabel ut igen, och flera veckor innan den fulla effekten på kollagen syns.',
+          'Porers faktiska storlek påverkas av genetiska och strukturella faktorer.',
+          'Behandling kan däremot göra att porer upplevs mindre framträdande när talg och tilltäppthet minskar.',
         ],
       },
       {
-        heading: 'Eftervård är avgörande',
+        heading: 'Carbon Peel eller Hydrafacial?',
         body: [
-          'Strikt solskydd är obligatoriskt under lång tid efter behandling, eftersom den nya huden är extra känslig för UV-skada. Håll huden återfuktad, undvik aktiva syror och retinol tills huden läkt fullt ut, och följ klinikens instruktioner om rengöring noggrant för att minimera infektionsrisk.',
-        ],
-      },
-      {
-        heading: 'Vem passar behandlingen för — och vem bör avvakta?',
-        body: [
-          'Fraktionerad CO2 passar bäst för dig med ljusare hudtoner och tydliga tecken på åldrande hud, ärrbildning eller solskada, och som kan avsätta tid för nedtiden. Personer med mörkare hudtoner löper något högre risk för post-inflammatorisk pigmentförändring och bör diskutera detta noga med behandlaren innan start. Gravida, ammande eller personer med aktiva hudinfektioner bör vänta med behandlingen.',
+          'Välj inte enbart efter popularitet. Hydrafacial är mer fukt- och rengöringsorienterad medan Carbon Peel har större fokus på fet/tilltäppt hud och porer.',
         ],
       },
     ],
     faq: [
       {
-        q: 'Hur många behandlingar behövs?',
-        a: 'Många ser tydlig förbättring redan efter en behandling, men vid mer uttalade ärr eller åldersskador rekommenderas ofta en till tre behandlingar med flera månaders mellanrum.',
+        q: 'Är Carbon Peel samma som Hollywood Peel?',
+        a: 'Ja, namnen används ofta om samma behandling.',
       },
       {
-        q: 'Gör behandlingen ont?',
-        a: 'Med lokalbedövning upplever de flesta obehaget som hanterbart, snarare som en värmande, stickande känsla än akut smärta.',
+        q: 'Passar den fet hud?',
+        a: 'Det är en av de hudtyper/tillstånd Dermalaser särskilt nämner.',
       },
+      {
+        q: 'Hur lång är behandlingen?',
+        a: '45 minuter.',
+      },
+      {
+        q: 'Vad kostar den?',
+        a: '1 095 kr.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Carbon Peel behandling', href: '/carbon-peel-stockholm/' },
+      { label: 'Hydrafacial', href: '/hydrafacial-stockholm/' },
+      { label: 'Pormaskar', href: '/tips/pormaskar/' },
     ],
   },
+
+  // --- laser-harborttagning -------------------------------------------------
   {
-    slug: 'laser-hair-removal-sessions',
+    slug: 'laser-harborttagning',
     cluster: 'Laser hair removal',
-    title: 'Laserhårborttagning: hur många behandlingar behövs egentligen?',
-    date: '2025-04-02',
+    title: 'Laser hårborttagning - så fungerar diodlaser',
+    date: '2025-08-26',
     image:
-      'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1200&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=1200&h=800&fit=crop',
     excerpt:
-      'Svaret beror på mer än du kanske tror — hårcykel, hudtyp, hormonell påverkan och behandlingsområde spelar alla in. Här är en realistisk tidslinje.',
-    readTime: '6 min läsning',
+      'Hur fungerar laser hårborttagning? Läs om diodlaser, antal behandlingar, rakning, resultat och olika behandlingsområden.',
+    readTime: '5 min läsning',
     intro: [
-      'En av de vanligaste frågorna inför laserhårborttagning är hur många behandlingar som faktiskt krävs för varaktigt resultat. Svaret är sällan ett exakt antal, men det finns tydliga mönster att utgå från.',
+      'Laser hårborttagning är en av de mest efterfrågade behandlingarna, men det är inte alltid tydligt hur diodlaser faktiskt fungerar eller vad som styr resultatet.',
+      'Här går vi igenom hur behandlingen fungerar, varför flera sessioner behövs och vad som är bra att veta inför ett besök.',
     ],
     sections: [
       {
-        heading: 'Varför krävs flera behandlingar?',
+        heading: 'Hur fungerar laser hårborttagning?',
         body: [
-          'Laser är som mest effektiv mot hårsäckar i tillväxtfasen (anagenfasen), eftersom det är då hårets pigment är som starkast och lasern kan träffa hårsäcken mest effektivt. Men hår på kroppen befinner sig i olika faser samtidigt — vissa växer, andra vilar eller faller av — vilket betyder att en enskild behandling bara träffar en delmängd av hårsäckarna.',
-          'Genom att upprepa behandlingen med jämna mellanrum fångas successivt fler hårsäckar när de roterar in i tillväxtfasen, vilket över tid ger en betydande och varaktig reduktion.',
+          'Diodlaser använder ljusenergi riktad mot pigment i håret.',
+          'Målet är långsiktig hårreducering, inte ett löfte om att varje hårstrå försvinner permanent.',
         ],
       },
       {
-        heading: 'Realistisk tidslinje',
+        heading: 'Varför behövs flera behandlingar?',
         body: [
-          'De flesta behöver mellan sex och tio behandlingar för synligt varaktigt resultat, med cirka fyra till åtta veckors mellanrum beroende på behandlingsområde. Ansikte och tunnare hår kan kräva tätare intervaller, medan grövre områden som ben ofta klarar sig med längre mellanrum.',
-          'Efter grundserien räknar många med en till två underhållsbehandlingar per år, eftersom hormonella förändringar över tid kan väcka enstaka nya hårsäckar till liv.',
+          'Hårstrån befinner sig i olika tillväxtfaser.',
+          'Därför påverkas inte alla hår optimalt vid samma behandlingstillfälle, vilket är anledningen till att en serie behandlingar planeras in.',
         ],
       },
       {
-        heading: 'Faktorer som påverkar antalet behandlingar',
+        heading: 'Vilka områden kan behandlas?',
         body: [
-          'Hårfärg och grovlek spelar stor roll — mörkt, grovt hår svarar generellt snabbare än ljust eller finkalibrigt hår, eftersom lasern riktar in sig på pigmentet melanin. Hormonella tillstånd som PCOS kan innebära fler behandlingar över längre tid, eftersom nya hårsäckar aktiveras kontinuerligt.',
-          'Behandlingsområdet spelar också in: större ytor med tjockare hårväxt, som rygg eller ben, tenderar att kräva fler sessioner än mindre, känsligare områden.',
+          'Dermalaser behandlar bland annat ansikte, armhålor, bikini, brasiliansk bikini, ben, armar, mage, rygg och bröst.',
         ],
       },
       {
-        heading: 'Så maximerar du resultatet mellan behandlingarna',
+        heading: 'Raka före behandlingen',
         body: [
-          'Undvik plockning och vaxning mellan behandlingarna, eftersom det rycker bort hårsäcken lasern behöver träffa — raka istället om håret behöver kortas. Skydda det behandlade området från sol, både före och efter varje session, för att minska risken för pigmentförändringar och för att laserns effekt inte ska försämras.',
+          'Området ska rakas innan besöket.',
+          'Dermalaser anger en extra avgift på 100 kr om rakning behöver göras på plats.',
+        ],
+      },
+      {
+        heading: 'Resultat varierar',
+        body: [
+          'Hårtyp, hudtyp, behandlingsområde och individuella faktorer påverkar hur snabbt och hur mycket hårväxten minskar.',
         ],
       },
     ],
     faq: [
-      {
-        q: 'Fungerar laser på allt hårfärg?',
-        a: 'Traditionell laser fungerar bäst på mörkare hår mot ljusare hud, eftersom tekniken bygger på kontrast i pigment. Mycket ljust, rött eller grått hår svarar generellt sämre.',
-      },
       {
         q: 'Är resultatet permanent?',
-        a: 'Resultatet räknas som varaktigt snarare än permanent för de allra flesta, eftersom hormonella förändringar över åren kan väcka enstaka nya hårsäckar.',
+        a: 'Behandlingen beskrivs som långsiktig hårreducering eftersom resultat och eventuell återväxt varierar.',
+      },
+      {
+        q: 'Hur många sessioner behövs?',
+        a: 'Flera behandlingar krävs, men exakt antal varierar.',
+      },
+      {
+        q: 'Ska jag raka eller vaxa före laser?',
+        a: 'Dermalaser instruerar kunden att raka området. Undvik att ta bort hårroten inför en laserbehandling om behandlarens instruktioner säger annat.',
+      },
+      {
+        q: 'Vad kostar behandlingen?',
+        a: 'Från 495 kr beroende på områdets storlek.',
       },
     ],
+    relatedLinks: [
+      { label: 'Laser hårborttagning behandling', href: '/laser-harborttagning-stockholm/' },
+      { label: 'Laser bikinilinje', href: '/tips/laser-bikinilinje/' },
+      { label: 'Laser ansikte', href: '/tips/laser-ansikte/' },
+    ],
+  },
+
+  // --- laser-bikinilinje -------------------------------------------------
+  {
+    slug: 'laser-bikinilinje',
+    cluster: 'Laser hair removal',
+    title: 'Laser hårborttagning av bikinilinjen',
+    date: '2025-09-02',
+    image:
+      'https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=1200&h=800&fit=crop',
+    excerpt:
+      'Läs hur laserbehandling av bikinilinjen fungerar, hur du förbereder huden och skillnaden mellan bikinilinje och brasiliansk laser.',
+    readTime: '4 min läsning',
+    intro: [
+      'Bikinilinje är ett av de vanligaste områdena att lasra, men det är inte alltid tydligt vad som skiljer bikinilinje från brasiliansk bikini eller vad som krävs inför behandlingen.',
+      'Här går vi igenom skillnaden mellan områdena, hur du förbereder dig och vad du kan förvänta dig av resultatet.',
+    ],
+    sections: [
+      {
+        heading: 'Bikinilinje eller brasiliansk?',
+        body: [
+          'Hos Dermalaser räknas bikinilinje som ett mindre område medan brasiliansk bikini räknas som mellanområde.',
+        ],
+      },
+      {
+        heading: 'Förberedelse',
+        body: [
+          'Området ska vara rakat före besöket.',
+          'Följ alltid behandlarens aktuella instruktioner inför varje session.',
+        ],
+      },
+      {
+        heading: 'Varför behövs flera behandlingar?',
+        body: [
+          'Precis som på andra områden växer håren i olika faser.',
+          'En serie sessioner behövs därför för långsiktig reduktion.',
+        ],
+      },
+      {
+        heading: 'Irritation efter rakning',
+        body: [
+          'Många söker laser för att minska behovet av rakning över tid.',
+          'Själva behandlingsresultatet varierar mellan personer.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Vad kostar bikinilinje?',
+        a: 'Bikinilinje ligger i Dermalasers kategori litet område: 495 kr.',
+      },
+      {
+        q: 'Vad kostar brasiliansk bikini?',
+        a: 'Brasiliansk bikini ligger i mellanområde: 995 kr.',
+      },
+      {
+        q: 'Måste jag raka mig?',
+        a: 'Ja, Dermalaser anger att området ska vara rakat.',
+      },
+      {
+        q: 'Hur många behandlingar behövs?',
+        a: 'Flera behandlingar, men exakt antal varierar.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Laser hårborttagning', href: '/laser-harborttagning-stockholm/' },
+      { label: 'Laser guide', href: '/tips/laser-harborttagning/' },
+      { label: 'Kontakt', href: '/kontakt/' },
+    ],
+  },
+
+  // --- laser-ansikte -------------------------------------------------
+  {
+    slug: 'laser-ansikte',
+    cluster: 'Laser hair removal',
+    title: 'Laser hårborttagning i ansiktet',
+    date: '2025-09-09',
+    image:
+      'https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=1200&h=800&fit=crop',
+    excerpt:
+      'Läs om laser hårborttagning på haka, överläpp, kinder och hals, hur behandlingen fungerar och vad du bör tänka på.',
+    readTime: '4 min läsning',
+    intro: [
+      'Ansiktshår kan kännas extra känsligt att prata om, men laserbehandling av områden som överläpp och haka är ett av de vanligaste ärendena vid laserbehandling.',
+      'Här går vi igenom vilka ansiktsområden som kan behandlas, hur processen fungerar och vad som är bra att tänka på inför ett besök.',
+    ],
+    sections: [
+      {
+        heading: 'Vilka ansiktsområden behandlas?',
+        body: [
+          'Dermalaser listar bland annat överläpp, haka, polisonger, hals, mellan bryn och kinder som mindre områden.',
+        ],
+      },
+      {
+        heading: 'Hur fungerar behandlingen?',
+        body: [
+          'Diodlaser riktar ljusenergi mot pigment i håret.',
+          'Effekten är beroende av hår- och hudegenskaper och en serie behandlingar behövs.',
+        ],
+      },
+      {
+        heading: 'Rakning inför behandling',
+        body: [
+          'Följ Dermalasers instruktion att raka området inför besöket.',
+          'Kontakta studion om du är osäker på ett specifikt ansiktsområde.',
+        ],
+      },
+      {
+        heading: 'Individuell bedömning',
+        body: [
+          'Ansiktshår kan ha olika karaktär och orsaker.',
+          'Därför bör behandlingsplanen anpassas individuellt.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Vilka områden i ansiktet kan behandlas?',
+        a: 'Överläpp, haka, polisonger, hals, mellan bryn och kinder finns listade som exempel.',
+      },
+      {
+        q: 'Vad kostar ett litet område?',
+        a: '495 kr.',
+      },
+      {
+        q: 'Hur många behandlingar behövs?',
+        a: 'Flera behandlingar behövs, men antal varierar.',
+      },
+      {
+        q: 'Kan alla hår behandlas lika bra?',
+        a: 'Nej, resultat påverkas bland annat av hårets pigment och individuella förutsättningar.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Laser hårborttagning', href: '/laser-harborttagning-stockholm/' },
+      { label: 'Laser guide', href: '/tips/laser-harborttagning/' },
+      { label: 'Kontakt', href: '/kontakt/' },
+    ],
+    cta: {
+      heading: 'Vill du ha hjälp utifrån just din hud?',
+      text: 'Boka kostnadsfri hudanalys eller läs mer om behandlingen som hör ihop med guiden.',
+      primaryLabel: 'Boka kostnadsfri hudanalys',
+      primaryHref: '/hudanalys-stockholm/',
+      secondaryLabel: 'Se relevant behandling',
+      secondaryHref: '/laser-harborttagning-stockholm/',
+    },
+  },
+
+  // --- co2-laser-aknearr -------------------------------------------------
+  {
+    slug: 'co2-laser-aknearr',
+    cluster: 'CO2 resurfacing',
+    title: 'CO2-laser för akneärr - hur fungerar behandlingen?',
+    date: '2025-09-16',
+    image:
+      'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1200&h=800&fit=crop',
+    excerpt:
+      'Läs hur fraktionerad CO2-laser används vid akneärr och ojämn hudstruktur, vad återhämtning innebär och när bedömning behövs.',
+    readTime: '5 min läsning',
+    intro: [
+      'Akneärr som förändrat själva hudstrukturen kräver ofta en annan typ av behandling än de som främst arbetar ytligt med rengöring eller exfoliering.',
+      'Här går vi igenom hur fraktionerad CO2-laser fungerar, vad återhämtningen innebär och varför en professionell bedömning bör göras innan behandling.',
+    ],
+    sections: [
+      {
+        heading: 'Varför kan akneärr behöva en annan behandling?',
+        body: [
+          'När akne lämnat förändringar i själva hudstrukturen räcker inte alltid behandlingar som främst arbetar med rengöring eller ytlig exfoliering.',
+        ],
+      },
+      {
+        heading: 'Hur fraktionerad CO2-laser fungerar',
+        body: [
+          'Behandlingen skapar kontrollerade mikroskopiska behandlingszoner i huden, vilket aktiverar reparationsprocesser och kollagenremodellering.',
+        ],
+      },
+      {
+        heading: 'Resultat utvecklas gradvis',
+        body: [
+          'Det slutliga resultatet ska inte bedömas direkt efter behandlingen. Huden behöver läka och remodellering fortsätter över tid.',
+        ],
+      },
+      {
+        heading: 'Återhämtning',
+        body: [
+          'CO2-resurfacing är en intensivare behandling och innebär återhämtningstid. Exakt förlopp varierar och ska gås igenom med behandlaren.',
+        ],
+      },
+      {
+        heading: 'Professionell bedömning först',
+        body: [
+          'Dermalaser anger att hudbedömning görs före behandling för att välja rätt protokoll och behandlingsnivå.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: 'Kan CO2-laser ta bort alla akneärr?',
+        a: 'Ingen seriös behandling bör lova att alla ärr försvinner. Målet är förbättring och resultat varierar.',
+      },
+      {
+        q: 'Hur lång är behandlingen hos Dermalaser?',
+        a: '60 minuter.',
+      },
+      {
+        q: 'Vad kostar den?',
+        a: '4 500 kr.',
+      },
+      {
+        q: 'Behövs återhämtning?',
+        a: 'Ja, behandlingen innebär en återhämtningsperiod.',
+      },
+      {
+        q: 'Behövs konsultation?',
+        a: 'Dermalaser anger professionell hudbedömning före behandling.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'CO2 Laser Resurfacing', href: '/co2-laser-stockholm/' },
+      { label: 'Akneärr guide', href: '/tips/aknearr/' },
+      { label: 'Aknebehandling', href: '/aknebehandling-stockholm/' },
+    ],
+    cta: {
+      heading: 'Vill du ha hjälp utifrån just din hud?',
+      text: 'Boka kostnadsfri hudanalys eller läs mer om behandlingen som hör ihop med guiden.',
+      primaryLabel: 'Boka kostnadsfri hudanalys',
+      primaryHref: '/hudanalys-stockholm/',
+      secondaryLabel: 'Se relevant behandling',
+      secondaryHref: '/co2-laser-stockholm/',
+    },
   },
 ];
+// ============================================================
+// HELPERS
+// ============================================================
 
 export function getGuideBySlug(slug: string): Guide | undefined {
-  return guides.find((g) => g.slug === slug);
+  return guides.find((guide) => guide.slug === slug);
 }
 
-export function getRelatedGuides(slug: string, count = 3): Guide[] {
-  return guides.filter((g) => g.slug !== slug).slice(0, count);
+export function getRelatedGuides(currentSlug: string, limit = 3): Guide[] {
+  const current = getGuideBySlug(currentSlug);
+  if (!current) return guides.filter((g) => g.slug !== currentSlug).slice(0, limit);
+
+  const sameCluster = guides.filter(
+    (g) => g.slug !== currentSlug && g.cluster === current.cluster
+  );
+
+  if (sameCluster.length >= limit) {
+    return sameCluster.slice(0, limit);
+  }
+
+  const others = guides.filter(
+    (g) => g.slug !== currentSlug && g.cluster !== current.cluster
+  );
+
+  return [...sameCluster, ...others].slice(0, limit);
 }

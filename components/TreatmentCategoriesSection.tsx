@@ -5,17 +5,17 @@ import { ChevronRight } from 'lucide-react';
 import styles from './TreatmentCategoriesSection.module.css';
 
 const treatmentSlugs: Record<string, string> = {
-  Laserbehandlingar: 'laserbehandlingar',
-  Hudföryngring: 'hudforengring',
-  Injektioner: 'injektioner',
-  'Medicinsk hudvård': 'medicinsk-hudvard',
-  Kroppsvård: 'kroppsvard',
-  'Klassisk massage': 'klassisk-massage',
-  'Lyxbehandling för 1/2': 'lyxbehandling-1-2',
-  'Spaavdelning med bubbelpool & privat IR-bastu': 'spa-och-ir-bastu',
-  'Fotbehandling/Pedikyr': 'fotbehandling-pedikyr',
-  'Hudvård/Ansikte': 'hudvard-ansikte',
-  Övrigt: 'ovrigt',
+  Hudanalys: 'hudanalys-stockholm',
+  'Akne & oren hud': 'aknebehandling-stockholm',
+  'Känslig & reaktiv hud': 'kanslig-hud-stockholm',
+  'Pigmentering & ojämn hudton': 'pigmentering-stockholm',
+  'Signature Premium Hudbehandling': 'signature-hudbehandling-stockholm',
+  'Klassisk Hudbehandling': 'ansiktsbehandling-stockholm',
+  'Kemisk peeling': 'kemisk-peeling-stockholm',
+  Hydrafacial: 'hydrafacial-stockholm',
+  'Carbon Peel': 'carbon-peel-stockholm',
+  'Diodlaser hårborttagning': 'laser-harborttagning-stockholm',
+  'CO2 Laser Resurfacing': 'co2-laser-stockholm',
 };
 
 type TreatmentCategoriesSectionProps = {

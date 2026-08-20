@@ -223,3 +223,16 @@
   line-height: 1.4;
   margin: 0;
 }
+
+.treatmentLinks {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.treatmentLinks a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
