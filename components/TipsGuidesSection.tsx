@@ -61,9 +61,19 @@ export default function TipsGuidesSection() {
       </div>
 
       <div className={styles.moreRow}>
-        <Link href="/tips" className="button outline" style={{ borderColor: 'var(--line)', color: 'var(--ink)' }}>
-          Se alla guider
-        </Link>
+      <Link
+  href="/tips"
+  className="button outline"
+  style={{
+    borderColor: 'var(--gold)',
+    backgroundColor: 'var(--gold)',
+    color: 'white',
+    padding: '14px 28px',
+    fontSize: '10px',
+  }}
+>
+  Se alla guider
+</Link>
       </div>
     </section>
   );

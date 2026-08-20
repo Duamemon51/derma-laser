@@ -50,20 +50,17 @@ export default function HomePage() {
 
       {/* HERO + HEADER — header floats transparent over the hero image, like a hairline over glass */}
       <section className="hero" aria-labelledby="hero-title">
-        <div className="heroBg">
-          <video
-            className="heroImg"
-            src="/videos/hero.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/images/hero-clinic.webp"
-            aria-hidden="true"
-          />
-          <div className="heroScrim" />
-        </div>
+        <video
+          className="heroImg"
+          src="/videos/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        />
+        <div className="heroScrim" />
         <Header treatments={treatments} />
         <div className="heroCopy shell" id="top">
          <h1 id="hero-title">Hudvård & avancerade <br /> hudbehandlingar i Stockholm.</h1>

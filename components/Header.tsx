@@ -93,7 +93,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
           <Link className="brand" href="/" aria-label="Derma Laser Studio startsida">
             <span className="brandMark">D</span>
             <span className="brandWord">DERMA LASER</span>
-            <small>STUDIO</small>
+            <small className="brandSub">STUDIO</small>
           </Link>
 
           <div className="navGroup right">
@@ -143,7 +143,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
           <ul className="treatmentsOverlayList">
             {treatments.map(([title]) => (
               <li key={title}>
-                <Link href={`/behandlingar/${treatmentSlugs[title] ?? title.toLowerCase().replaceAll(' ', '-')}`} onClick={() => setTreatmentsOpen(false)}>{title}</Link>
+                <Link href={`/behandlingar/${treatmentSlugs[title] ?? title.toLowerCase().replaceAll(' ', '-')}`} className="treatmentsOverlayLink" onClick={() => setTreatmentsOpen(false)}>{title}</Link>
               </li>
             ))}
           </ul>
@@ -213,8 +213,8 @@ export default function Header({ treatments, light = false }: HeaderProps) {
         .siteHeader { position: relative; z-index: 80; padding-top: 26px; background: transparent; }
         .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 26px; }
         .navGroup { display: flex; align-items: center; gap: 30px; text-transform: uppercase; font-size: 14px; letter-spacing: .03em; }
-        .navGroup a { color: #fff; opacity: .92; display: inline-flex; align-items: center; gap: 5px; }
-        .navGroup a:hover { opacity: 1; }
+        :global(.navGroup a) { color: #fff; opacity: .92; display: inline-flex; align-items: center; gap: 5px; }
+        :global(.navGroup a:hover) { opacity: 1; }
         .navGroup.right { justify-content: flex-end; }
         .desktopNavLink { display: inline-flex; }
         .navDropdownTrigger, .iconBtn { background: none; border: 0; color: #fff; cursor: pointer; font-family: var(--font-montserrat), sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; padding: 0; }
@@ -227,20 +227,20 @@ export default function Header({ treatments, light = false }: HeaderProps) {
         .iconBtn i { font-size: 18px; line-height: 1; }
         .icon { font-size: 25px; line-height: 1; }
         .chev { display: inline-flex; align-items: center; justify-content: center; width: 24px; margin-left: 3px; line-height: 1; opacity: .85; transition: transform .2s ease; }
-        .brand { text-align: center; display: flex; flex-direction: column; align-items: center; line-height: 1; color: #fff; letter-spacing: .13em; font-size: 12px; }
-        .brandWord { font-family: var(--font-montserrat), sans-serif; font-size: 19px; letter-spacing: .16em; }
-        .brand small { font-size: 7px; margin-top: 5px; letter-spacing: .35em; opacity: .8; }
+        :global(.brand) { text-align: center !important; display: grid !important; justify-items: center !important; line-height: 1; color: #fff; letter-spacing: .13em; font-size: 12px; }
+        .brandWord { display: block !important; white-space: nowrap; text-align: center !important; margin-inline: auto !important; font-family: var(--font-montserrat), sans-serif; font-size: 19px; letter-spacing: .16em; }
+        .brandSub { display: block !important; white-space: nowrap; text-align: center !important; margin-inline: auto !important; font-size: 7px; margin-top: 5px; letter-spacing: .35em; opacity: .8; }
         .siteHeader.menuOpen { background: #f7f6f0; padding-bottom: 20px; transition: background-color .2s ease; }
-        .siteHeader.menuOpen .navGroup a, .siteHeader.menuOpen .navDropdownTrigger, .siteHeader.menuOpen .iconBtn, .siteHeader.menuOpen .brand { color: var(--ink); }
-        .siteHeader.menuOpen .brandWord { color: var(--gold); }
+        :global(.siteHeader.menuOpen .navGroup a), .siteHeader.menuOpen .navDropdownTrigger, .siteHeader.menuOpen .iconBtn, :global(.siteHeader.menuOpen .brand) { color: var(--ink); }
+        :global(.siteHeader.menuOpen .brandWord) { color: var(--gold); }
         .siteHeader.searchBg { background: #fff; transition: background-color .2s ease; }
-        .siteHeader.searchBg .navGroup a, .siteHeader.searchBg .navDropdownTrigger, .siteHeader.searchBg .iconBtn, .siteHeader.searchBg .brand { color: var(--ink); }
-        .siteHeader.searchBg .brandWord { color: var(--gold); }
+        :global(.siteHeader.searchBg .navGroup a), .siteHeader.searchBg .navDropdownTrigger, .siteHeader.searchBg .iconBtn, :global(.siteHeader.searchBg .brand) { color: var(--ink); }
+        :global(.siteHeader.searchBg .brandWord) { color: var(--gold); }
         .siteHeader.lightHeader { background: #fbfaf7; }
-        :global(.siteHeader.lightHeader .navGroup a), .siteHeader.lightHeader .navDropdownTrigger, .siteHeader.lightHeader .iconBtn, :global(.siteHeader.lightHeader .brand), :global(.siteHeader.lightHeader .brand small) { color: var(--ink); }
+        :global(.siteHeader.lightHeader .navGroup a), .siteHeader.lightHeader .navDropdownTrigger, .siteHeader.lightHeader .iconBtn, :global(.siteHeader.lightHeader .brand), :global(.siteHeader.lightHeader .brandSub) { color: var(--ink); }
         :global(.siteHeader.lightHeader .brandWord) { color: var(--gold); }
         .siteHeader.scrolled { position: fixed; top: 0; left: 0; right: 0; padding-top: 18px; padding-bottom: 18px; background: #fff; box-shadow: 0 4px 18px rgba(45, 41, 38, .1); transition: background-color .2s ease, box-shadow .2s ease; }
-        :global(.siteHeader.scrolled .navGroup a), .siteHeader.scrolled .navDropdownTrigger, .siteHeader.scrolled .iconBtn, :global(.siteHeader.scrolled .brand), :global(.siteHeader.scrolled .brand small) { color: var(--ink); }
+        :global(.siteHeader.scrolled .navGroup a), .siteHeader.scrolled .navDropdownTrigger, .siteHeader.scrolled .iconBtn, :global(.siteHeader.scrolled .brand), :global(.siteHeader.scrolled .brandSub) { color: var(--ink); }
         :global(.siteHeader.scrolled .brandWord) { color: var(--gold); }
 
         .searchOverlay { position: relative; z-index: 60; background: #f4ead9; padding: 24px 0; }
@@ -254,27 +254,29 @@ export default function Header({ treatments, light = false }: HeaderProps) {
         .treatmentsOverlayList { list-style: none; margin: 0; padding: 0 0 0 6.5%; max-width: 900px; }
         .treatmentsOverlayList li { border-bottom: 1px solid var(--line); }
         .treatmentsOverlayList li:first-child { border-top: 1px solid var(--line); }
-        .treatmentsOverlayList a { display: flex; align-items: center; padding: 22px 40px 22px 0; max-width: 820px; color: var(--ink); font-size: 20px; font-weight: 600; }
-        .treatmentsOverlayList a:hover { color: var(--gold); }
+        :global(.treatmentsOverlayLink) { display: flex; align-items: center; padding: 22px 40px 22px 0; max-width: 820px; color: var(--ink); font-size: 20px; font-weight: 600; text-decoration: none; }
+        :global(.treatmentsOverlayLink:hover) { color: var(--gold); }
         @media (max-width: 900px) {
           .siteHeader { padding-top: 18px; }
           .nav { grid-template-columns: 1fr auto; gap: 18px; }
           .navGroup.left { display: none; }
-          .brand { justify-self: start; }
+          :global(.brand) { justify-self: start; justify-items: start; text-align: left; }
+          .brandWord, .brandSub { text-align: left !important; margin-inline: 0 !important; }
           .navGroup.right { display: flex; justify-content: flex-end; gap: 18px; }
+          .navGroup.right :global(.desktopNavLink) { display: none !important; }
           .desktopNavLink { display: none !important; }
           .menuToggle { display: inline-flex; }
         }
         @media (max-width: 560px) {
           .nav { width: calc(100% - 28px); grid-template-columns: 1fr auto; gap: 12px; }
           .brandWord { font-size: 16px; }
-          .brand small { font-size: 6px; }
+          .brandSub { font-size: 6px; }
           .iconBtn { font-size: 11px; gap: 5px; }
           .iconBtn svg { width: 19px; height: 19px; }
           .searchOverlay { padding: 16px 0; }
           .treatmentsOverlay { padding-top: 90px; }
           .treatmentsOverlayList { padding-left: 24px; }
-          .treatmentsOverlayList a { padding: 16px 20px 16px 0; font-size: 16px; }
+          :global(.treatmentsOverlayLink) { padding: 16px 20px 16px 0; font-size: 16px; }
           .searchOverlayForm { padding-left: 16px; }
           .searchOverlayInput { font-size: 15px; padding: 13px 8px; }
         }
