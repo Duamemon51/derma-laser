@@ -1,4 +1,5 @@
 :root{--bg:#fff;--cream:#fbf7f2;--cream2:#f3e9de;--ink:#2d2926;--muted:#6e6863;--gold:#C98A37;--line:#e8e2db;--shell:1120px}
+:root{--bg:#fff;--cream:#fbf7f2;--cream2:#f3e9de;--ink:#2d2926;--muted:#6e6863;--gold:#C98A37;--line:#e8e2db;--shell:1440px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-montserrat),sans-serif;font-size:15px;line-height:1.55}a{color:inherit;text-decoration:none}.shell{width:min(calc(100% - 48px),var(--shell));margin-inline:auto}h1,h2,.brandMark,.signature{font-family:var(--font-montserrat),sans-serif;font-weight:400}h1{font-size:clamp(32px,4vw,52px);line-height:1.04;margin:0 0 22px}h2{font-size:clamp(31px,3.6vw,48px);line-height:1.1;margin:0 0 18px}h3{margin:0 0 8px}
 
 /* ===== Header + hero — full-bleed image, nav floats transparent on top ===== */
@@ -147,9 +148,36 @@
 .floatingMark{position:absolute;left:32px;bottom:26px;z-index:2;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-montserrat),sans-serif;font-size:15px;backdrop-filter:blur(4px)}
 
 /* ===== Everything below is unchanged from the original stylesheet unless noted ===== */
-.section{padding-block:86px}.about{display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center;padding-block:88px 56px}.eyebrow{color:var(--gold);text-transform:uppercase;font-size:10px;font-weight:700;letter-spacing:.09em;margin:0 0 12px}.center{text-align:center}.aboutCopy>p:not(.eyebrow){max-width:540px;color:var(--muted)}.aboutImage{position:relative;min-height:395px;border-radius:8px;overflow:hidden}.aboutImage img{object-fit:cover}.miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px;margin-top:30px}.miniGrid div{display:grid;gap:4px;position:relative;padding-left:28px}.miniGrid div:before{content:'◇';position:absolute;left:0;top:0;color:var(--gold);font-size:19px}.miniGrid b{font-size:13px}.miniGrid span{font-size:11px;color:var(--muted)}.consult{min-height:255px;border-radius:12px;background:linear-gradient(90deg,#f4eadf,#fffaf6,#f4e7d9);display:grid;grid-template-columns:29% 38% 33%;overflow:hidden;align-items:stretch;margin-top:15px}.consultImage{position:relative;min-height:255px}.consultImage img{object-fit:cover}.consultCopy{padding:44px 30px}.consultCopy h2{font-size:38px}.consultCopy p:last-child{font-size:13px;color:var(--muted)}.consultPoints{padding:42px 34px;display:flex;flex-direction:column;gap:15px;font-size:12px}.consultPoints .button{margin-top:4px;align-self:flex-start}.sectionTitle{text-align:center}
+.section{padding-block:86px}.about{
+  display:block;
+  padding-block:88px 56px;
+}
+.aboutIntro{
+  max-width:560px;
+  margin:0 auto;
+  color:var(--muted);
+}
+.miniGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px 32px;
+  margin-top:44px;
+  max-width:1000px;
+  margin-inline:auto;
+}
+.miniGrid div{
+  text-align:left;
+  padding-left:28px;
+}
 
-/* --- Behandlingar cards: added shadow, hover lift, round icon, arrow chip --- */
+@media(max-width:900px){
+  .miniGrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .miniGrid{grid-template-columns:1fr}
+}.eyebrow{color:var(--gold);text-transform:uppercase;font-size:10px;font-weight:700;letter-spacing:.09em;margin:0 0 12px}.center{text-align:center}.aboutCopy>p:not(.eyebrow){max-width:540px;color:var(--muted)}.aboutImage{position:relative;min-height:395px;border-radius:8px;overflow:hidden}.aboutImage img{object-fit:cover}.miniGrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px;margin-top:30px}.miniGrid div{display:grid;gap:4px;position:relative;padding-left:28px}.miniGrid div:before{content:'◇';position:absolute;left:0;top:0;color:var(--gold);font-size:19px}.miniGrid b{font-size:13px}.miniGrid span{font-size:11px;color:var(--muted)}.consult{min-height:255px;border-radius:12px;background:linear-gradient(90deg,#f4eadf,#fffaf6,#f4e7d9);display:grid;grid-template-columns:29% 38% 33%;overflow:hidden;align-items:stretch;margin-top:15px}.consultImage{position:relative;min-height:255px}.consultImage img{object-fit:cover}.consultCopy{padding:44px 30px}.consultCopy h2{font-size:38px}.consultCopy p:last-child{font-size:13px;color:var(--muted)}.consultPoints{padding:42px 34px;display:flex;flex-direction:column;gap:15px;font-size:12px}.consultPoints .button{margin-top:4px;align-self:flex-start}.sectionTitle{text-align:center}
+
+  .consult{min-height:360px;border-radius:12px;background:linear-gradient(90deg,#f4eadf,#fffaf6,#f4e7d9);display:grid;grid-template-columns:29% 38% 33%;overflow:hidden;align-items:stretch;margin-top:15px}.consultImage{position:relative;min-height:360px}
 .treatmentGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px}
 .treatmentCard{
   position:relative;
@@ -201,63 +229,18 @@
   transform:translateX(3px);
 }
 
-.videoBanner{height:165px;position:relative;border-radius:12px;overflow:hidden;color:white;display:flex;align-items:center;padding:34px 60px;margin-bottom:38px;background:#4e4944}.videoBanner img{object-fit:cover;opacity:.42;z-index:0}.videoBanner>div,.play{position:relative;z-index:1}.videoBanner h2{font-size:30px;margin-bottom:8px}.videoBanner p{margin:0}.play{position:absolute;left:52%;top:50%;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.7);border-radius:50%;width:52px;height:52px;display:grid;place-items:center;padding-left:3px}
+.treatmentScrollerWrap{position:relative}
+.treatmentScroller{overflow:hidden}
+.treatmentScroller .treatmentGrid{display:flex;width:max-content}
+.treatmentScroller .treatmentCard{width:260px;flex:none}
+.scrollArrow{position:absolute;top:50%;z-index:2;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px rgba(45,41,38,.12);transform:translateY(-50%)}
+.scrollArrow:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.scrollArrowLeft{left:-20px}
+.scrollArrowRight{right:-20px}
 
-/* --- Trust strip: numbered gold badge instead of the plain black square --- */
-.trust{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:30px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:32px 36px;
-  margin-bottom:32px;
-  background:linear-gradient(180deg,#fff,#fdfbf8);
-}
-.trustItem{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
-.trustSquare{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:var(--cream2);
-  color:var(--gold);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.02em;
-}
-.trustItem h3{font-size:13px}
-.trustItem p{font-size:10px;color:var(--muted);margin:0;line-height:1.6}
+.videoBanner{width:100%;height:60vh;min-height:360px;max-height:560px;position:relative;border-radius:0;overflow:hidden;margin-bottom:38px;background:#e8e2db}.videoBanner video{width:100%;height:100%;display:block;object-fit:cover}.videoBannerOverlay{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:34px max(28px,calc((100vw - var(--shell)) / 2));color:#fff;background:linear-gradient(90deg,rgba(30,26,23,.58),rgba(30,26,23,.12) 70%)}.videoBannerOverlay h2{font-size:clamp(30px,3.4vw,46px);margin:0 0 8px}.videoBannerOverlay p{margin:0;font-size:16px}
 
-.results{padding-top:40px}.resultsImage{position:relative;height:175px;max-width:920px;margin:26px auto 40px;overflow:hidden;border-radius:6px}.resultsImage img{object-fit:cover}
-
-/* --- Reviews: rounded cards, subtle shadow, hover lift on the review cards --- */
-.reviews{
-  border:1px solid var(--line);
-  border-radius:12px;
-  display:grid;
-  grid-template-columns:1.15fr repeat(3,1fr);
-  margin-top:30px;
-  overflow:hidden;
-  box-shadow:0 1px 2px rgba(45,41,38,.04);
-}
-.reviews article{
-  padding:26px;
-  border-right:1px solid var(--line);
-  min-height:175px;
-  display:flex;
-  flex-direction:column;
-  transition:background-color .18s ease;
-}
-.reviews article:not(.score):hover{background:var(--cream)}
-.reviews article:last-child{border-right:0}
-.reviews strong{font-family:Georgia,serif;font-size:30px}
-.reviews p{font-size:11px}
-.reviews small{font-size:9px}
-.reviews article b{margin-top:auto;padding-top:6px}
-.stars,.score span{color:var(--gold);letter-spacing:3px}
+.resultsImage{position:relative;height:175px;max-width:920px;margin:26px auto 40px;overflow:hidden;border-radius:6px}.resultsImage img{object-fit:cover}
 
 /* --- FAQ: rotating + icon, gold hover border, smoother open state --- */
 .faq{padding-top:60px}
@@ -297,7 +280,7 @@
 .faq details[open] summary span{transform:rotate(180deg)}
 .faq details p{padding:0 18px 16px;margin:0;color:var(--muted);font-size:11px;line-height:1.7}
 
-.cta{min-height:220px;border-radius:10px;background:linear-gradient(90deg,#f7efe8,#fffaf6,#f4e8dc);display:grid;grid-template-columns:25% 50% 25%;align-items:center;text-align:center;overflow:hidden;margin-bottom:34px}.cta>div:nth-child(2){padding:40px}.cta h2{font-size:32px}.cta p{font-size:12px;max-width:500px;margin:0 auto 22px}.ctaArt{position:relative;min-height:220px}.ctaArt img{object-fit:contain}.footer{display:grid;grid-template-columns:1.4fr 1fr .9fr 1fr;gap:60px;background:#f7f3ef;padding:55px 45px 40px;margin-bottom:35px}.footer h3{font-family:Georgia,serif;font-weight:400;font-size:22px}.footer h4{text-transform:uppercase;font-size:10px;letter-spacing:.06em}.footer p,.footer a,.footer small{display:block;font-size:10px;color:var(--muted);margin-bottom:8px}.footerBrand{text-align:center;display:flex;flex-direction:column;justify-content:center}.signature{font-size:54px;font-style:italic}.footerBrand b{font-family:Georgia,serif;font-weight:400;font-size:20px}.footerBrand small{margin-top:48px}
+.cta{width:100%;min-height:220px;border-radius:10px;background:linear-gradient(90deg,#f7efe8,#fffaf6,#f4e8dc);display:grid;grid-template-columns:25% 50% 25%;align-items:center;text-align:center;overflow:hidden;margin-bottom:34px}.cta>div:nth-child(2){padding:40px}.cta h2{font-size:32px}.cta p{font-size:12px;max-width:500px;margin:0 auto 22px}.ctaArt{position:relative;min-height:220px}.ctaArt img{object-fit:cover}.footer{display:grid;grid-template-columns:1.4fr 1fr .9fr 1fr;gap:60px;background:#f7f3ef;padding:55px 45px 40px;margin-bottom:35px}.footer h3{font-family:Georgia,serif;font-weight:400;font-size:22px}.footer h4{text-transform:uppercase;font-size:10px;letter-spacing:.06em}.footer p,.footer a,.footer small{display:block;font-size:10px;color:var(--muted);margin-bottom:8px}.footerBrand{text-align:center;display:flex;flex-direction:column;justify-content:center}.signature{font-size:54px;font-style:italic}.footerBrand b{font-family:Georgia,serif;font-weight:400;font-size:20px}.footerBrand small{margin-top:48px}
 
 /* ===== Responsive ===== */
 @media(max-width:900px){
@@ -310,11 +293,9 @@
   .about{grid-template-columns:1fr;gap:35px}
   .aboutImage{min-height:340px}
   .consult{grid-template-columns:1fr}
-  .consultImage{min-height:250px}
+  .consultImage{min-height:340px}
   .treatmentGrid{grid-template-columns:repeat(2,1fr)}
   .trust{grid-template-columns:1fr 1fr}
-  .reviews{grid-template-columns:1fr 1fr}
-  .reviews article{border-bottom:1px solid var(--line)}
   .faqGrid{grid-template-columns:1fr}
   .footer{grid-template-columns:1fr 1fr}
   .cta{grid-template-columns:1fr}
@@ -328,12 +309,12 @@
   .rating{max-width:100%}
   .section{padding-block:60px}
   .about{padding-block:58px 30px}
-  .miniGrid,.treatmentGrid,.trust,.reviews,.footer{grid-template-columns:1fr}
+  .miniGrid,.treatmentGrid,.trust,.footer{grid-template-columns:1fr}
   .consultCopy,.consultPoints{padding:30px 24px}
-  .videoBanner{padding:28px;height:190px}
-  .videoBanner h2{font-size:26px}
+  .videoBanner{height:40vh;min-height:260px}
+  .scrollArrowLeft{left:0}
+  .scrollArrowRight{right:0}
   .trust{padding:24px}
-  .reviews article{border-right:0}
   .footer{gap:28px;padding:36px 26px}
   .footerBrand{align-items:flex-start;text-align:left}
   .footerBrand small{margin-top:20px}
@@ -342,3 +323,14 @@
 .treatmentCard h3{font-family:var(--font-montserrat),sans-serif}
 
 .aboutImage img{object-position:center top}
+
+.consultPoints > span{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  line-height:1.5;
+}
+
+.consultPoints > .button{
+  margin-top:12px;
+}

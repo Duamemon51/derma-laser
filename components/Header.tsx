@@ -72,6 +72,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
       <header className={`siteHeader ${light ? 'lightHeader' : ''} ${scrolled ? 'scrolled' : ''} ${treatmentsOpen ? 'menuOpen' : ''} ${searchOpen ? 'searchBg' : ''}`}>
         <nav className="nav shell" aria-label="Huvudmeny">
           <div className="navGroup left">
+            <Link href="/">Hem</Link>
             <button
               type="button"
               className={`navDropdownTrigger ${treatmentsOpen ? 'isOpen' : ''}`}
@@ -96,22 +97,13 @@ export default function Header({ treatments, light = false }: HeaderProps) {
           </Link>
 
           <div className="navGroup right">
+            <Link className="desktopNavLink" href="/omdomen">Omdömen</Link>
+            <Link className="desktopNavLink" href="/om-oss">Om oss</Link>
+            <Link className="desktopNavLink" href="/kontakt">Kontakt</Link>
+           
             <button
               type="button"
-              className={`iconBtn ${searchOpen ? 'isOpen' : ''}`}
-              aria-label="Sök"
-              aria-expanded={searchOpen}
-              aria-controls="search-overlay"
-              onClick={() => {
-                setTreatmentsOpen(false);
-                setSearchOpen((previous) => !previous);
-              }}
-            >
-              Sök <Search size={17} strokeWidth={1.5} aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              className="iconBtn"
+              className="iconBtn menuToggle"
               aria-label="Öppna meny"
               aria-expanded={menuOpen}
               aria-controls="main-menu-panel"
@@ -224,11 +216,13 @@ export default function Header({ treatments, light = false }: HeaderProps) {
         .navGroup a { color: #fff; opacity: .92; display: inline-flex; align-items: center; gap: 5px; }
         .navGroup a:hover { opacity: 1; }
         .navGroup.right { justify-content: flex-end; }
+        .desktopNavLink { display: inline-flex; }
         .navDropdownTrigger, .iconBtn { background: none; border: 0; color: #fff; cursor: pointer; font-family: var(--font-montserrat), sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; padding: 0; }
         .navDropdownTrigger { display: inline-flex; align-items: center; gap: 5px; }
         .navDropdownTrigger.isOpen { opacity: .8; }
         .navDropdownTrigger.isOpen .chev { transform: rotate(180deg); }
         .iconBtn { display: inline-flex; align-items: center; gap: 8px; }
+        .menuToggle { display: none; }
         .iconBtn.isOpen { opacity: .8; }
         .iconBtn i { font-size: 18px; line-height: 1; }
         .icon { font-size: 25px; line-height: 1; }
@@ -268,12 +262,13 @@ export default function Header({ treatments, light = false }: HeaderProps) {
           .navGroup.left { display: none; }
           .brand { justify-self: start; }
           .navGroup.right { display: flex; justify-content: flex-end; gap: 18px; }
+          .desktopNavLink { display: none !important; }
+          .menuToggle { display: inline-flex; }
         }
         @media (max-width: 560px) {
-          .nav { width: calc(100% - 28px); gap: 12px; }
+          .nav { width: calc(100% - 28px); grid-template-columns: 1fr auto; gap: 12px; }
           .brandWord { font-size: 16px; }
           .brand small { font-size: 6px; }
-          .navGroup.right { gap: 12px; }
           .iconBtn { font-size: 11px; gap: 5px; }
           .iconBtn svg { width: 19px; height: 19px; }
           .searchOverlay { padding: 16px 0; }
@@ -309,6 +304,7 @@ export default function Header({ treatments, light = false }: HeaderProps) {
           .menuPanelFooter { min-height: 150px; padding: 52px 28px 54px; }
           .menuPanelClose { right: 24px; }
           :global(.menuPanelLink) { min-height: 58px; font-size: 21px; }
+           .desktopNavLink { display: none !important; }
         }
       `}</style>
     </div>

@@ -30,7 +30,7 @@
 .heroContent {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 48px), 1120px);
+  width: min(calc(100% - 48px), 1440px);
   margin: auto auto 78px;
 }
 
@@ -101,7 +101,7 @@
   }
 
   .heroContent {
-    width: min(calc(100% - 28px), 1120px);
+    width: min(calc(100% - 28px), 1440px);
     margin-bottom: 58px;
   }
 

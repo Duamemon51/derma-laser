@@ -1,0 +1,57 @@
+.treatmentScrollerWrap{
+  position:relative;
+  margin-top:34px;
+}
+
+.treatmentScroller{
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding-bottom:4px;
+}
+.treatmentScroller::-webkit-scrollbar{
+  display:none;
+}
+
+.treatmentGrid{
+  display:flex;
+  gap:16px;
+  margin-top:0;
+  width:max-content;
+}
+.treatmentGrid .treatmentCard{
+  flex:0 0 260px;
+  scroll-snap-align:start;
+}
+
+.scrollArrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:5;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 8px 20px -10px rgba(45,41,38,.3);
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease;
+}
+.scrollArrow:hover{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#fff;
+}
+.scrollArrowLeft{ left:-22px; }
+.scrollArrowRight{ right:-22px; }
+
+@media(max-width:900px){
+  .scrollArrow{ display:none; }
+}

@@ -1,6 +1,6 @@
 .footer {
-  background: #eeece2;
-  color: #171513;
+  background: linear-gradient(160deg, var(--cream2), #fffaf5 55%, var(--cream2));
+  color: var(--ink);
   padding: 54px 0 22px;
 }
 
@@ -17,12 +17,13 @@
   font-size: 25px;
   font-weight: 400;
   line-height: 1.25;
+  color: var(--ink);
 }
 
 .footer p {
   max-width: 320px;
   margin: 0;
-  color: #4f4a45;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.55;
 }
@@ -30,7 +31,10 @@
 .footer h4 {
   margin: 0 0 18px;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 
 .footerLinks a,
@@ -41,6 +45,7 @@
   color: #171513;
   font-size: 11px;
   text-decoration: none;
+  transition: color .18s ease;
 }
 
 .footer a:hover {
@@ -51,9 +56,10 @@
   display: inline-block;
   margin-top: 42px;
   padding-bottom: 7px;
-  border-bottom: 1px solid currentColor;
-  color: #171513;
+  border-bottom: 1px solid var(--gold);
+  color: var(--gold);
   font-size: 11px;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -72,12 +78,14 @@
   font-size: 58px;
   font-style: italic;
   line-height: 1;
+  color: var(--gold);
 }
 
 .footerBrand b {
   margin-top: 8px;
   font-size: 12px;
   font-weight: 400;
+  color: var(--ink);
 }
 
 .footerBottom {
@@ -86,8 +94,8 @@
   align-items: end;
   gap: 20px;
   padding-top: 34px;
-  border-top: 1px solid rgba(45, 41, 38, .2);
-  color: #4f4a45;
+  border-top: 1px solid rgba(201, 138, 55, .25);
+  color: var(--muted);
 }
 
 .footerBottom small {
@@ -101,7 +109,7 @@
 
 .footerBottom a {
   margin: 0;
-  color: #4f4a45;
+  color: var(--muted);
   font-size: 9px;
 }
 

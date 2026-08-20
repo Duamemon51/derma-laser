@@ -4,6 +4,10 @@
   color: #171513;
 }
 
+.page :global(.shell) {
+  width: min(calc(100% - 48px), 1200px);
+}
+
 .headerWrap {
   min-height: 90px;
   background: #fbfaf7;
@@ -176,6 +180,10 @@
 }
 
 @media (max-width: 700px) {
+  .page :global(.shell) {
+    width: min(calc(100% - 28px), 1200px);
+  }
+
   .headerWrap {
     min-height: 76px;
   }

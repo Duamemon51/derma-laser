@@ -1,0 +1,147 @@
+/* TipsGuidesSection.module.css */
+.tips {
+  padding-block: 80px;
+}
+
+.heading {
+  font-size: clamp(30px, 3.6vw, 46px);
+  max-width: 720px;
+  margin: 0 0 40px;
+}
+
+.scrollerWrap {
+  position: relative;
+}
+
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.grid {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--cream2);
+  margin-bottom: 16px;
+}
+
+.cardImage img {
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .cardImage img {
+  transform: scale(1.05);
+}
+
+.cardCluster {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 14px;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.card:hover h3 {
+  color: var(--gold);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.arrowWrap {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover .arrowWrap {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.navArrow {
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -10px rgba(45, 41, 38, 0.3);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.navArrow:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.navArrow[data-dir='left'] { left: -22px; }
+.navArrow[data-dir='right'] { right: -22px; }
+
+.moreRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 44px;
+}
+
+@media (max-width: 900px) {
+  .navArrow {
+    display: none;
+  }
+}

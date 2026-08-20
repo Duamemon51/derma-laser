@@ -1,0 +1,31 @@
+.wrap {
+  max-width: 1100px;
+  padding-block: 70px 60px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin: 0 0 22px;
+}
+
+.statement {
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.28;
+  color: var(--ink);
+  margin: 0;
+  max-width: 900px;
+}
+
+@media (max-width: 700px) {
+  .wrap {
+    padding-block: 48px 40px;
+  }
+
+  .statement {
+    font-size: 26px;
+  }
+}
