@@ -229,7 +229,7 @@ export default function HomePage() {
         </section>
 
           <TreatmentCategoriesSection treatments={[...treatments, ...serviceLinks]} />
-<TipsGuidesSection />
+
     <section className="cta" id="kontakt" style={{ minHeight: '380px', padding: '20px',borderRadius: 0, }}>
   <div style={{ gridColumn: '1 / -1', maxWidth: '700px', margin: '0 auto', padding: '0 20px' }}>
     <h2 style={{ fontSize: 'clamp(34px, 4.5vw, 56px)', marginBottom: '20px' }}>
