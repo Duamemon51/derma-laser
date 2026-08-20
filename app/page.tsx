@@ -116,11 +116,91 @@ export default function HomePage() {
   </div>
 </section>
 
-        <section className="consult shell" id="boka">
-          <div className="consultImage"><Image src="/images/consultation-room.webp" alt="Lugn behandlingsmiljö på kliniken" fill sizes="260px" /></div>
-          <div className="consultCopy"><p className="eyebrow">Behandla din skönhet. Boka nu själv.</p><h2>30 minuter som kan<br />förändra din hud.</h2><p>Vi analyserar din hud, går igenom dina mål och skapar en personlig behandlingsplan – helt utan kostnad.</p></div>
-          <div className="consultPoints"><span>✓ 30 min personlig rådgivning med hudanalys</span><span>✓ Individuellt anpassade behandlingsplaner</span><span>✓ Trygg, professionell och diskret miljö</span><a className="button primary" href="/boka-tid">Boka 30 min kostnadsfri konsultation</a></div>
-        </section>
+       <section
+  className="consult"
+  id="boka"
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "48px",
+    width: "100%",
+    padding: "48px 56px",
+    borderRadius: "16px",
+    background: "linear-gradient(90deg, #fbeee4 0%, #f3ddc9 100%)",
+  }}
+>
+  <div
+    className="consultCopy"
+    style={{ flex: "1 1 50%", minWidth: 0 }}
+  >
+    <p
+      className="eyebrow"
+      style={{
+        margin: 0,
+        color: "#c07a2b",
+        fontWeight: 700,
+        letterSpacing: "0.03em",
+        textTransform: "uppercase",
+        fontSize: "0.8rem",
+      }}
+    >
+      Behandla din skönhet. Boka nu själv.
+    </p>
+    <h2
+      style={{
+        margin: "12px 0",
+        fontSize: "2.2rem",
+        lineHeight: 1.15,
+        fontWeight: 400,
+        color: "#1a1a1a",
+      }}
+    >
+      30 minuter som kan
+      <br />
+      förändra din hud.
+    </h2>
+    <p style={{ margin: 0, color: "#4a4a4a", maxWidth: "480px" }}>
+      Vi analyserar din hud, går igenom dina mål och skapar en personlig
+      behandlingsplan – helt utan kostnad.
+    </p>
+  </div>
+
+  <div
+    className="consultPoints"
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      gap: "12px",
+      flex: "1 1 40%",
+    }}
+  >
+    <span>✓ 30 min personlig rådgivning med hudanalys</span>
+    <span>✓ Individuellt anpassade behandlingsplaner</span>
+    <span>✓ Trygg, professionell och diskret miljö</span>
+    <a
+      className="button primary"
+      href="/boka-tid"
+      style={{
+        marginTop: "12px",
+        display: "inline-block",
+        whiteSpace: "nowrap",
+        padding: "14px 28px",
+        borderRadius: "8px",
+        background: "#c07a2b",
+        color: "#fff",
+        fontWeight: 700,
+        fontSize: "0.85rem",
+        textTransform: "uppercase",
+        letterSpacing: "0.03em",
+        textDecoration: "none",
+      }}
+    >
+      Boka 30 min kostnadsfri konsultation
+    </a>
+  </div>
+</section>
 <TreatmentsSection />
 
         <section className="videoBanner" aria-label="Presentation av kliniken">
@@ -167,6 +247,7 @@ export default function HomePage() {
     </Link>
   </div>
 </section>
+<TipsGuidesSection />
       </main>
 
       <Footer />

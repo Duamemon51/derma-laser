@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { serviceLinks } from '../../components/services';
+import GalleryReviews from './GalleryReviews';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -76,6 +77,8 @@ export default function ReviewsPage() {
           className={styles.reviewImage}
         />
       </section>
+
+      <GalleryReviews />
 
       <Footer />
     </main>

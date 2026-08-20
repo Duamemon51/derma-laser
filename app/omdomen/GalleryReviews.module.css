@@ -1,81 +1,73 @@
-.results {
-  padding-top: 40px;
+.galleriSection {
+  padding-block: 8px 64px;
 }
 
-.galleryFrame {
+.galleriBox {
+  border: 1px solid #e4ddd3;
+  border-radius: 14px;
+  background: #fff;
+  padding: 32px;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.galleriTitle {
+  margin: 0 0 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d2926;
+}
+
+.galleriGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.galleriItem {
   position: relative;
-  margin-top: 34px;
-}
-
-.galleryScroller {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.galleryScroller::-webkit-scrollbar {
-  display: none;
-}
-
-.galleryRow {
-  display: flex;
-  align-items: flex-end;
-  gap: 16px;
-  width: max-content;
-}
-
-.galleryItem {
-  position: relative;
-  flex: 0 0 240px;
-  height: 320px;
-  border-radius: 12px;
+  aspect-ratio: 4 / 3;
+  border-radius: 8px;
   overflow: hidden;
-  background: var(--cream2);
-  scroll-snap-align: start;
+  background: #e8e2db;
 }
 
-.galleryItem img {
+.galleriItem img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.galleryItemTall {
-  height: 400px;
-}
-
-.ctaRow {
-  display: flex;
-  justify-content: center;
-  margin-top: 44px;
+.reviewsSection {
+  padding-block: 0 96px;
 }
 
 .reviewsWrap {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 0;
-  margin-top: 34px;
-  border: 1px solid var(--line);
+  border: 1px solid #e4ddd3;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 1px 2px rgba(45, 41, 38, 0.04);
   background: #fff;
 }
 
-/* Score card — stands out with gold-tinted gradient, stays fixed/static */
 .score {
-  background: linear-gradient(160deg, var(--cream2), #fffaf5);
+  background: linear-gradient(160deg, #f4ede4, #fffaf5);
   justify-content: center;
   align-items: flex-start;
   gap: 6px;
   padding: 64px 32px;
-  border-right: 1px solid var(--line);
+  border-right: 1px solid #e4ddd3;
   display: flex;
   flex-direction: column;
-  min-height: 360px;
+  min-height: 320px;
 }
 
 .scoreStars {
-  color: var(--gold);
+  color: #c8983f;
   font-size: 20px;
   letter-spacing: -1px;
 }
@@ -84,22 +76,21 @@
   font-family: Georgia, serif;
   font-size: 34px;
   line-height: 1.1;
-  color: var(--ink);
+  color: #2d2926;
 }
 
 .score small {
   font-size: 10px;
-  color: var(--muted);
+  color: #6e6863;
 }
 
 .score p {
   margin: 10px 0 0;
   font-size: 11px;
-  color: var(--muted);
+  color: #6e6863;
   font-weight: 600;
 }
 
-/* Scrollable reviews frame */
 .reviewsFrame {
   position: relative;
   min-width: 0;
@@ -125,8 +116,8 @@
 
 .reviews article {
   padding: 64px 32px;
-  border-right: 1px solid var(--line);
-  min-height: 360px;
+  border-right: 1px solid #e4ddd3;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -139,13 +130,12 @@
 }
 
 .reviewCard:hover {
-  background: var(--cream);
+  background: #fbf7f2;
   transform: translateY(-3px);
 }
 
-/* Review cards */
 .stars {
-  color: var(--gold);
+  color: #c8983f;
   letter-spacing: 3px;
   font-size: 14px;
   margin-bottom: 14px;
@@ -153,7 +143,7 @@
 
 .reviewCard p {
   font-size: 13px;
-  color: var(--ink);
+  color: #2d2926;
   line-height: 1.75;
   flex: 1;
 }
@@ -161,7 +151,7 @@
 .reviewFooter {
   margin-top: 28px;
   padding-top: 18px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #e4ddd3;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -173,8 +163,8 @@
   height: 48px;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--cream2);
-  border: 2px solid var(--gold);
+  background: #e8e2db;
+  border: 2px solid #c8983f;
   flex: none;
 }
 
@@ -191,7 +181,7 @@
 
 .reviewFooter small {
   font-size: 10px;
-  color: var(--muted);
+  color: #6e6863;
 }
 
 .scrollArrow {
@@ -202,9 +192,9 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--line);
+  border: 1px solid #e4ddd3;
   background: #fff;
-  color: var(--gold);
+  color: #c8983f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,8 +203,8 @@
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .scrollArrow:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: #c8983f;
+  border-color: #c8983f;
   color: #fff;
 }
 .scrollArrow[data-dir='left'] { left: 10px; }
@@ -226,20 +216,22 @@
   }
   .score {
     border-right: 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid #e4ddd3;
   }
-  .scrollArrow { display: none; }
+  .scrollArrow {
+    display: none;
+  }
 }
 
 @media (max-width: 560px) {
+  .galleriGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .galleriBox {
+    padding: 20px;
+  }
   .reviews article {
-    flex: 0 0 280px;
-  }
-  .galleryItem {
-    flex: 0 0 180px;
-    height: 240px;
-  }
-  .galleryItemTall {
-    height: 300px;
+    flex: 0 0 260px;
+    padding: 48px 24px;
   }
 }
